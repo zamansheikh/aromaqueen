@@ -116,9 +116,9 @@ class AuthCheckBox extends StatelessWidget {
           children: [
             Obx(
               () => Checkbox(
-                value: controller.isRememberMe.value,
+                value: controller.isChecked.value,
                 onChanged: (value) {
-                  controller.isRememberMe.value = value!;
+                  controller.isChecked.value = value!;
                 },
                 activeColor: Colors.teal,
                 side: BorderSide(color: Colors.teal),
