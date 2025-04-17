@@ -1,3 +1,4 @@
+import 'package:aromaqueen/core/themes/color_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -8,8 +9,8 @@ class AppTheme {
     brightness: Brightness.light,
     visualDensity: VisualDensity.adaptivePlatformDensity,
     scaffoldBackgroundColor: Colors.white,
-    appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.blue,
+    appBarTheme: AppBarTheme(
+      backgroundColor: ColorConstants.lightAppBar,
       foregroundColor: Colors.white,
     ),
   );
@@ -19,8 +20,8 @@ class AppTheme {
     brightness: Brightness.dark,
     visualDensity: VisualDensity.adaptivePlatformDensity,
     scaffoldBackgroundColor: Colors.grey[900],
-    appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.blueGrey,
+    appBarTheme: AppBarTheme(
+      backgroundColor: ColorConstants.darkAppBar,
       foregroundColor: Colors.white,
     ),
   );
