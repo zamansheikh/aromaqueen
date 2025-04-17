@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PaddingWrapper extends StatelessWidget {
+  // this is a wrapper for padding
   const PaddingWrapper({super.key, required this.child});
 
   final Widget child;
