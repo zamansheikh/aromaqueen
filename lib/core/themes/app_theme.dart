@@ -10,7 +10,7 @@ class AppTheme {
     visualDensity: VisualDensity.adaptivePlatformDensity,
     scaffoldBackgroundColor: Colors.white,
     appBarTheme: AppBarTheme(
-      backgroundColor: ColorConstants.lightAppBar,
+      backgroundColor: ColorConstants.white,
       foregroundColor: Colors.white,
     ),
   );
@@ -21,7 +21,7 @@ class AppTheme {
     visualDensity: VisualDensity.adaptivePlatformDensity,
     scaffoldBackgroundColor: Colors.grey[900],
     appBarTheme: AppBarTheme(
-      backgroundColor: ColorConstants.darkAppBar,
+      backgroundColor: ColorConstants.white,
       foregroundColor: Colors.white,
     ),
   );
