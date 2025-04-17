@@ -49,7 +49,7 @@ class SignInView extends StatelessWidget {
                 ),
 
                 SizedBox(height: 12.h),
-                RememberMeComponent(),
+                AuthCheckBox(hasForgotPass: true, title: "Remember Me"),
                 SizedBox(height: 24.h),
 
                 CustomButton(
@@ -92,10 +92,16 @@ class SignInView extends StatelessWidget {
   }
 }
 
-class RememberMeComponent extends StatelessWidget {
+class AuthCheckBox extends StatelessWidget {
   // This component contains remember me checkbox and
   // forget password text button that takes the user to the verify email page
-  const RememberMeComponent({super.key});
+  const AuthCheckBox({
+    super.key,
+    required this.title,
+    required this.hasForgotPass,
+  });
+  final String title;
+  final bool hasForgotPass;
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +125,7 @@ class RememberMeComponent extends StatelessWidget {
               ),
             ),
             Text(
-              'Remember Me',
+              title,
               style: GoogleFonts.roboto(
                 fontSize: 14.sp,
                 color: ColorConstants.gray,
@@ -128,19 +134,19 @@ class RememberMeComponent extends StatelessWidget {
           ],
         ),
         // Forget Password Text Button
-        TextButton(
-          onPressed: () {
-            Get.toNamed(Routes.verifyEmail);
-          },
-          child: Text(
-            'Forget Password?',
-            style: GoogleFonts.roboto(
-              fontSize: 14.sp,
-              color: ColorConstants.primary,
-              decoration: TextDecoration.underline,
+        if (hasForgotPass)
+          TextButton(
+            onPressed: () {
+              Get.toNamed(Routes.verifyEmail);
+            },
+            child: Text(
+              'Forget Password?',
+              style: GoogleFonts.roboto(
+                fontSize: 14.sp,
+                color: ColorConstants.primary,
+              ),
             ),
           ),
-        ),
       ],
     );
   }
