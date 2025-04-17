@@ -1,5 +1,5 @@
+import 'package:aromaqueen/core/error/error_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_getx_template/core/error/error_screen.dart';
 import 'package:get/get.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
