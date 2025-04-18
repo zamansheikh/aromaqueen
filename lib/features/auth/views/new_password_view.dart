@@ -1,6 +1,9 @@
+import 'package:aromaqueen/core/components/custom_alert_loader.dart';
 import 'package:aromaqueen/core/components/custom_appbar.dart';
 import 'package:aromaqueen/core/components/custom_button.dart';
 import 'package:aromaqueen/core/components/custom_input.dart';
+import 'package:aromaqueen/core/controller/animation_controller.dart';
+import 'package:aromaqueen/core/routes/app_pages.dart';
 import 'package:aromaqueen/core/themes/color_constants.dart';
 import 'package:aromaqueen/core/wrapper/padding_wrapper.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +12,9 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class NewPasswordView extends StatelessWidget {
-  const NewPasswordView({super.key});
+  NewPasswordView({super.key});
+  final FlutterAnimationController controller =
+      Get.find<FlutterAnimationController>();
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +54,13 @@ class NewPasswordView extends StatelessWidget {
               child: CustomButton(
                 btnTxt: "Continue",
                 onPressed: () {
-                
+                  showAlertLoader(
+                    spinController: controller.spinAnimation,
+                    nextRoute: Routes.signIn,
+                    body:
+                        "Your account is ready to use. You will be redirected to the Home page in a few seconds..",
+                    title: "Congratulations!",
+                  );
                 },
               ),
             ),

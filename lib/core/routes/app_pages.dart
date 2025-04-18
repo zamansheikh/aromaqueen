@@ -41,7 +41,7 @@ class AppPages {
     ),
     GetPage(
       name: Routes.newPassword,
-      page: () => const NewPasswordView(),
+      page: () =>  NewPasswordView(),
       binding: AuthBinding(),
     ),
   ];

@@ -1,6 +1,5 @@
 import 'package:aromaqueen/core/components/custom_appbar.dart';
 import 'package:aromaqueen/core/components/custom_button.dart';
-import 'package:aromaqueen/core/components/custom_input.dart';
 import 'package:aromaqueen/core/routes/app_pages.dart';
 import 'package:aromaqueen/core/themes/color_constants.dart';
 import 'package:aromaqueen/core/wrapper/padding_wrapper.dart';
