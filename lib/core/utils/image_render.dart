@@ -5,13 +5,25 @@ Widget imageRender({
   required url,
   required double width,
   required double height,
+  double? borderRadius,
 }) {
   if (url == null || url.isEmpty) {
     return const SizedBox.shrink();
   }
   if (url.startsWith('http')) {
-    return Image.network(url, width: width, height: height, fit: BoxFit.cover);
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(borderRadius ?? 0),
+      child: Image.network(
+        url,
+        width: width,
+        height: height,
+        fit: BoxFit.cover,
+      ),
+    );
   } else {
-    return Image.asset(url, width: width, height: height, fit: BoxFit.cover);
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(borderRadius ?? 0),
+      child: Image.asset(url, width: width, height: height, fit: BoxFit.cover),
+    );
   }
 }

@@ -22,7 +22,6 @@ class HomeView extends StatelessWidget {
         children: [
           homeHeader(),
           SizedBox(height: 24.h),
-
           PaddingWrapper(
             child: Column(
               children: [
@@ -35,19 +34,68 @@ class HomeView extends StatelessWidget {
                   hintText: "Use the keyword search ",
                 ),
                 SizedBox(height: 24.h),
-                Row(
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [iconRender(url: IconConst.noteIcon)],
-                    ),
-                  ],
-                ),
+                homeBottom(),
               ],
             ),
           ),
         ],
       ),
+    );
+  }
+
+  // Below start the ui functions
+
+  Row homeBottom() {
+    return Row(
+      spacing: 24.w,
+      children: [
+        Column(
+          spacing: 16.h,
+          children: [
+            iconRender(url: IconConst.noteIcon, size: 40),
+            iconRender(url: IconConst.heartIcon, size: 40),
+            iconRender(url: IconConst.piggyIcon, size: 40),
+          ],
+        ),
+        Flexible(
+          child: Stack(
+            children: [
+              imageRender(
+                url: ImageConstants.onBoardingImage,
+                width: double.maxFinite,
+                height: 186.h,
+                borderRadius: 25.r,
+              ),
+
+              Positioned(
+                top: (186.h - 110.h) / 2,
+                left: (Get.width - 254.w) / 8,
+                child: SizedBox(
+                  height: 110.h,
+                  width: 254.w,
+                  child: Column(
+                    children: [
+                      imageRender(
+                        url: ImageConstants.logo,
+                        width: 70.w,
+                        height: 70.h,
+                      ),
+                      Text(
+                        "Advertising Space, Slider",
+                        style: GoogleFonts.roboto(
+                          fontSize: 20.sp,
+                          fontWeight: FontWeight.w700,
+                          color: ColorConstants.dark,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 
@@ -57,6 +105,7 @@ class HomeView extends StatelessWidget {
       children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
+          spacing: 8.h,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
