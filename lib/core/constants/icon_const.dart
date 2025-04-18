@@ -6,4 +6,5 @@ class IconConst {
   static const String facebookIcon = '${iconPath}facebook_icon.svg';
   static const String instaIcon = '${iconPath}insta_icon.svg';
   static const String logoIcon = '${iconPath}logo_icon.svg';
+  static const String successIcon = '${iconPath}success_icon.svg';
 }
