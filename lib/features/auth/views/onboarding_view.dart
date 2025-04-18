@@ -24,9 +24,9 @@ class OnboardingView extends StatelessWidget {
             width: Get.width,
             height: 212.h,
           ),
-          SizedBox(height: 20.h),
+          SizedBox(height: 30.h),
           imageRender(url: ImageConstants.logo, width: 100.w, height: 100.h),
-          SizedBox(height: 12.h),
+          SizedBox(height: 20.h),
           Text(
             "More than just an app",
             style: GoogleFonts.roboto(
@@ -35,7 +35,7 @@ class OnboardingView extends StatelessWidget {
               color: Colors.black,
             ),
           ),
-          SizedBox(height: 8.h),
+          SizedBox(height: 12.h),
           Text(
             "For women who want more from life.",
             textAlign: TextAlign.center,
@@ -45,7 +45,7 @@ class OnboardingView extends StatelessWidget {
               color: ColorConstants.darkGray,
             ),
           ),
-          SizedBox(height: 4.h),
+          SizedBox(height: 8.h),
           Text(
             "Find the natural way to truly balance family, career, and your own needs.",
             style: GoogleFonts.roboto(
@@ -55,7 +55,7 @@ class OnboardingView extends StatelessWidget {
             ),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 24.h),
+          SizedBox(height: 36.h),
           // Register button -> takes the user to sign in page
           PaddingWrapper(
             child: CustomButton(
@@ -65,7 +65,7 @@ class OnboardingView extends StatelessWidget {
               },
             ),
           ),
-          SizedBox(height: 30.h),
+          SizedBox(height: 36.h),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 60.w),
             child: Row(
@@ -91,7 +91,7 @@ class OnboardingView extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 30.h),
+          SizedBox(height: 36.h),
           PaddingWrapper(
             child: Text(
               "By registering, you agree to our Terms of Use and Privacy Policy.",

@@ -15,10 +15,12 @@ class CustomInputField extends StatelessWidget {
     this.isPassword = false,
     this.title,
     this.prefixIcon,
+    this.postfixIcon,
     this.maxLines = 1,
     this.hintText,
     this.background,
     this.isNumber = false,
+    this.isCircular = false,
     this.onChanged,
   });
 
@@ -27,11 +29,13 @@ class CustomInputField extends StatelessWidget {
   final bool isEmail;
   final bool isPassword;
   final String? prefixIcon;
+  final String? postfixIcon;
   final int maxLines;
   final TextEditingController controller;
   final Color? background;
   final bool isNumber;
   final Function(String)? onChanged;
+  final bool isCircular;
 
   // To track obscure and unobsure state of password text
   final RxBool isObscure = true.obs;
@@ -59,7 +63,7 @@ class CustomInputField extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 5.h),
             decoration: BoxDecoration(
               border: Border.all(color: ColorConstants.primaryLight),
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(isCircular ? 100 : 12),
               color: background,
             ),
             // Row is used for prefix icons and suffix icons
@@ -119,6 +123,9 @@ class CustomInputField extends StatelessWidget {
                     },
                   ),
                 ),
+                if (postfixIcon != null)
+                  SvgPicture.asset(postfixIcon!, height: 20.h, width: 20.w),
+                if (postfixIcon != null) SizedBox(width: 12.w),
                 // for obscure and unobscure text
                 if (isPassword) SizedBox(width: 12.h),
                 if (isPassword)
