@@ -5,6 +5,8 @@ import 'package:aromaqueen/features/auth/views/otp_verify_view.dart';
 import 'package:aromaqueen/features/auth/views/sign_in_view.dart';
 import 'package:aromaqueen/features/auth/views/sign_up_view.dart';
 import 'package:aromaqueen/features/auth/views/verify_email_view.dart';
+import 'package:aromaqueen/features/home/bindings/home_binding.dart';
+import 'package:aromaqueen/features/home/views/home_view.dart';
 import 'package:get/get.dart';
 
 part 'app_routes.dart';
@@ -41,8 +43,10 @@ class AppPages {
     ),
     GetPage(
       name: Routes.newPassword,
-      page: () =>  NewPasswordView(),
+      page: () => NewPasswordView(),
       binding: AuthBinding(),
     ),
+    // Home Feature Routes
+    GetPage(name: Routes.home, page: () => HomeView(), binding: HomeBinding()),
   ];
 }

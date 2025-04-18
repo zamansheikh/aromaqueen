@@ -10,4 +10,6 @@ abstract class Routes {
   static const newPassword = '/new-password';
 
   //home feature routes
+  static const home = '/home';
+  static const search = '/search';
 }
