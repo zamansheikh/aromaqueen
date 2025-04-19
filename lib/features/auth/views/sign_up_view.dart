@@ -64,7 +64,7 @@ class SignUpView extends StatelessWidget {
                   btnTxt: "Sign Up",
                   onPressed: () {
                     // Todo: take the user to home page
-                    Get.offAllNamed(Routes.home);
+                    Get.offAllNamed(Routes.mainPage);
                   },
                 ),
 

@@ -7,6 +7,7 @@ import 'package:aromaqueen/features/auth/views/sign_up_view.dart';
 import 'package:aromaqueen/features/auth/views/verify_email_view.dart';
 import 'package:aromaqueen/features/home/bindings/home_binding.dart';
 import 'package:aromaqueen/features/home/views/home_view.dart';
+import 'package:aromaqueen/features/main_page.dart';
 import 'package:get/get.dart';
 
 part 'app_routes.dart';
@@ -47,6 +48,10 @@ class AppPages {
       binding: AuthBinding(),
     ),
     // Home Feature Routes
-    GetPage(name: Routes.home, page: () => HomeView(), binding: HomeBinding()),
+    GetPage(
+      name: Routes.mainPage,
+      page: () => MainPage(),
+      binding: HomeBinding(),
+    ),
   ];
 }

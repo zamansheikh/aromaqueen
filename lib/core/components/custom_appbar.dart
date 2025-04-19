@@ -41,7 +41,12 @@ PreferredSize customAppbar2() {
             Row(
               spacing: 16.w,
               children: [
-                iconRender(url: IconConst.notificationIcon, size: 20),
+                GestureDetector(
+                  onTap: () {
+                    showBottomFeedSheet();
+                  },
+                  child: iconRender(url: IconConst.notificationIcon, size: 20),
+                ),
                 iconRender(url: IconConst.hamburgerIcon, size: 20),
               ],
             ),
@@ -49,5 +54,65 @@ PreferredSize customAppbar2() {
         ),
       ),
     ),
+  );
+}
+
+void showBottomFeedSheet() {
+  showModalBottomSheet(
+    context: Get.context!,
+    isScrollControlled: true, // Allows the sheet to take full height
+    backgroundColor: Colors.transparent, // Transparent background
+    builder:
+        (context) => DraggableScrollableSheet(
+          initialChildSize: 0.4, // Initial height (40% of screen)
+          minChildSize: 0.2, // Minimum height (20% of screen)
+          maxChildSize: 0.95, // Maximum height (95% of screen)
+          builder: (context, scrollController) {
+            return Container(
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 10,
+                    color: Colors.black12,
+                    spreadRadius: 5,
+                  ),
+                ],
+              ),
+              child: SingleChildScrollView(
+                controller: scrollController,
+                child: Column(
+                  children: [
+                    // Drag handle
+                    Container(
+                      width: 40,
+                      height: 5,
+                      margin: const EdgeInsets.symmetric(vertical: 10),
+                      decoration: BoxDecoration(
+                        color: Colors.grey[300],
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    // Sheet content
+                    const Padding(
+                      padding: EdgeInsets.all(16.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
+        ),
   );
 }
