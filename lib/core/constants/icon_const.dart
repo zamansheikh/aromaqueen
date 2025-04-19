@@ -20,4 +20,6 @@ class IconConst {
   static const String comunityIcon = '${iconPath}comunity_icon.svg';
   static const String callHotlineIcon = '${iconPath}call_hotline_icon.svg';
   static const String emailIcon = '${iconPath}email_icon.svg';
+  static const String gradIcon = '${iconPath}grad_icon.svg';
+  static const String oilIcon = '${iconPath}oil_icon.svg';
 }
