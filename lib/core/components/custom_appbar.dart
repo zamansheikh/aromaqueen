@@ -1,8 +1,10 @@
+import 'package:aromaqueen/core/components/aroma_card.dart';
 import 'package:aromaqueen/core/constants/icon_const.dart';
 import 'package:aromaqueen/core/constants/image_constants.dart';
 import 'package:aromaqueen/core/themes/color_constants.dart';
 import 'package:aromaqueen/core/utils/icon_render.dart';
 import 'package:aromaqueen/core/utils/image_render.dart';
+import 'package:aromaqueen/core/wrapper/bottom_sheet_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -43,7 +45,10 @@ PreferredSize customAppbar2() {
               children: [
                 GestureDetector(
                   onTap: () {
-                    showBottomFeedSheet();
+                    showBottomSheetWrapper(
+                      title: "News Feed",
+                      child: NewsFeed(),
+                    );
                   },
                   child: iconRender(url: IconConst.notificationIcon, size: 20),
                 ),
@@ -57,62 +62,34 @@ PreferredSize customAppbar2() {
   );
 }
 
-void showBottomFeedSheet() {
-  showModalBottomSheet(
-    context: Get.context!,
-    isScrollControlled: true, // Allows the sheet to take full height
-    backgroundColor: Colors.transparent, // Transparent background
-    builder:
-        (context) => DraggableScrollableSheet(
-          initialChildSize: 0.4, // Initial height (40% of screen)
-          minChildSize: 0.2, // Minimum height (20% of screen)
-          maxChildSize: 0.95, // Maximum height (95% of screen)
-          builder: (context, scrollController) {
-            return Container(
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-                boxShadow: [
-                  BoxShadow(
-                    blurRadius: 10,
-                    color: Colors.black12,
-                    spreadRadius: 5,
-                  ),
-                ],
-              ),
-              child: SingleChildScrollView(
-                controller: scrollController,
-                child: Column(
-                  children: [
-                    // Drag handle
-                    Container(
-                      width: 40,
-                      height: 5,
-                      margin: const EdgeInsets.symmetric(vertical: 10),
-                      decoration: BoxDecoration(
-                        color: Colors.grey[300],
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                    // Sheet content
-                    const Padding(
-                      padding: EdgeInsets.all(16.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            );
-          },
+class NewsFeed extends StatelessWidget {
+  const NewsFeed({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        AromaCard(
+          title: "Advirtising Space, Slider",
+          content:
+              "If you need help or personal advice, just click on my photo.If you need help or personal advice, just click on my photo.",
         ),
-  );
+        AromaCard(
+          title: "Advirtising Space, Slider",
+          content:
+              "If you need help or personal advice, just click on my photo.If you need help or personal advice, just click on my photo.",
+        ),
+        AromaCard(
+          title: "Advirtising Space, Slider",
+          content:
+              "If you need help or personal advice, just click on my photo.If you need help or personal advice, just click on my photo.",
+        ),
+        AromaCard(
+          title: "Advirtising Space, Slider",
+          content:
+              "If you need help or personal advice, just click on my photo.If you need help or personal advice, just click on my photo.",
+        ),
+      ],
+    );
+  }
 }
