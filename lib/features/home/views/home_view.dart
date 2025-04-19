@@ -2,6 +2,7 @@ import 'package:aromaqueen/core/components/custom_appbar.dart';
 import 'package:aromaqueen/core/components/custom_input.dart';
 import 'package:aromaqueen/core/constants/icon_const.dart';
 import 'package:aromaqueen/core/constants/image_constants.dart';
+import 'package:aromaqueen/core/routes/app_pages.dart';
 import 'package:aromaqueen/core/themes/color_constants.dart';
 import 'package:aromaqueen/core/utils/icon_render.dart';
 import 'package:aromaqueen/core/utils/image_render.dart';
@@ -55,9 +56,18 @@ class HomeView extends StatelessWidget {
         Column(
           spacing: 16.h,
           children: [
-            iconRender(url: IconConst.noteIcon, size: 40),
-            iconRender(url: IconConst.heartIcon, size: 40),
-            iconRender(url: IconConst.piggyIcon, size: 40),
+            GestureDetector(
+              onTap: () => Get.toNamed(Routes.notes),
+              child: iconRender(url: IconConst.noteIcon, size: 40),
+            ),
+            GestureDetector(
+              onTap: () => Get.toNamed(Routes.favourite),
+              child: iconRender(url: IconConst.heartIcon, size: 40),
+            ),
+            GestureDetector(
+              onTap: () => Get.toNamed(Routes.income),
+              child: iconRender(url: IconConst.piggyIcon, size: 40),
+            ),
           ],
         ),
         Flexible(
