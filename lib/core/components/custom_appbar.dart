@@ -30,7 +30,7 @@ AppBar customAppbar1({required title}) {
   );
 }
 
-PreferredSize customAppbar2() {
+PreferredSize customAppbar2({bool hasNewsFeed = true}) {
   return PreferredSize(
     preferredSize: Size.fromHeight(60.h),
     child: SafeArea(
@@ -43,15 +43,19 @@ PreferredSize customAppbar2() {
             Row(
               spacing: 16.w,
               children: [
-                GestureDetector(
-                  onTap: () {
-                    showBottomSheetWrapper(
-                      title: "News Feed",
-                      child: NewsFeed(),
-                    );
-                  },
-                  child: iconRender(url: IconConst.notificationIcon, size: 20),
-                ),
+                if (hasNewsFeed)
+                  GestureDetector(
+                    onTap: () {
+                      showBottomSheetWrapper(
+                        title: "News Feed",
+                        child: NewsFeed(),
+                      );
+                    },
+                    child: iconRender(
+                      url: IconConst.notificationIcon,
+                      size: 20,
+                    ),
+                  ),
                 iconRender(url: IconConst.hamburgerIcon, size: 20),
               ],
             ),
