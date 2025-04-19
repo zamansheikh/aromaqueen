@@ -14,7 +14,7 @@ void showBottomSheetWrapper({required String title, required Widget child}) {
     backgroundColor: Colors.transparent, // Transparent background
     builder:
         (context) => DraggableScrollableSheet(
-          initialChildSize: 0.4, // Initial height (40% of screen)
+          initialChildSize: 0.75, // Initial height (40% of screen)
           minChildSize: 0.2, // Minimum height (20% of screen)
           maxChildSize: 0.95, // Maximum height (95% of screen)
           builder: (context, scrollController) {
