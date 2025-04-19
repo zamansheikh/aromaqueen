@@ -5,6 +5,7 @@ import 'package:aromaqueen/core/constants/image_constants.dart';
 import 'package:aromaqueen/core/themes/color_constants.dart';
 import 'package:aromaqueen/core/utils/icon_render.dart';
 import 'package:aromaqueen/core/utils/image_render.dart';
+import 'package:aromaqueen/core/wrapper/bottom_sheet_wrapper.dart';
 import 'package:aromaqueen/core/wrapper/padding_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -110,12 +111,70 @@ class HomeView extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CircleAvatar(
-                  radius: 36,
-                  child: imageRender(
-                    url: ImageConstants.hotline,
-                    width: 120,
-                    height: 120,
+                GestureDetector(
+                  onTap: () {
+                    showBottomSheetWrapper(
+                      title: "Aroma Experten-Hotline",
+                      child: SizedBox(
+                        width: Get.width,
+                        child: Column(
+                          children: [
+                            CircleAvatar(
+                              radius: 100,
+                              child: imageRender(
+                                url: ImageConstants.hotline,
+                                width: 200.w,
+                                height: 200.h,
+                              ),
+                            ),
+                            SizedBox(height: 32.h),
+                            iconRender(
+                              url: IconConst.callHotlineIcon,
+                              size: 40,
+                            ),
+                            SizedBox(height: 16.h),
+                            Text(
+                              "Aroma Expert Hotline",
+                              style: GoogleFonts.roboto(
+                                fontWeight: FontWeight.w700,
+                                fontSize: 24.sp,
+                                color: ColorConstants.dark,
+                              ),
+                            ),
+                            SizedBox(height: 8.h),
+                            Text(
+                              "Would you like a personalized consultation with a trained aroma expert?",
+                              style: GoogleFonts.roboto(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 16.sp,
+                                color: ColorConstants.gray,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                            SizedBox(height: 24.h),
+                            Text(
+                              "We are happy to assist you on our hotline.Per minute: xx Call 0800xxxx",
+                              style: GoogleFonts.roboto(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 16.sp,
+                                color: ColorConstants.gray,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                            SizedBox(height: 24.h),
+                            iconRender(url: IconConst.emailIcon, size: 50),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                  child: CircleAvatar(
+                    radius: 36,
+                    child: imageRender(
+                      url: ImageConstants.hotline,
+                      width: 120,
+                      height: 120,
+                    ),
                   ),
                 ),
               ],
