@@ -11,12 +11,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final lcl = AppLocalizations.of(context);
     return Scaffold(
       appBar: customAppbar2(),
       body: Column(
@@ -26,7 +28,7 @@ class HomeView extends StatelessWidget {
           PaddingWrapper(
             child: Column(
               children: [
-                contactHotline(),
+                contactHotline(context),
                 SizedBox(height: 24.h),
                 CustomInputField(
                   controller: TextEditingController(),
@@ -100,7 +102,8 @@ class HomeView extends StatelessWidget {
     );
   }
 
-  Row contactHotline() {
+  Row contactHotline(context) {
+    final lcl = AppLocalizations.of(context);
     return Row(
       spacing: 12.w,
       children: [
@@ -114,7 +117,7 @@ class HomeView extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     showBottomSheetWrapper(
-                      title: "Aroma Experten-Hotline",
+                      title: lcl!.hotLineTitle,
                       child: SizedBox(
                         width: Get.width,
                         child: Column(
@@ -134,7 +137,7 @@ class HomeView extends StatelessWidget {
                             ),
                             SizedBox(height: 16.h),
                             Text(
-                              "Aroma Expert Hotline",
+                              lcl.hotLineTitle,
                               style: GoogleFonts.roboto(
                                 fontWeight: FontWeight.w700,
                                 fontSize: 24.sp,
@@ -143,7 +146,7 @@ class HomeView extends StatelessWidget {
                             ),
                             SizedBox(height: 8.h),
                             Text(
-                              "Would you like a personalized consultation with a trained aroma expert?",
+                              lcl.hotLineConent1,
                               style: GoogleFonts.roboto(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 16.sp,
@@ -153,7 +156,7 @@ class HomeView extends StatelessWidget {
                             ),
                             SizedBox(height: 24.h),
                             Text(
-                              "We are happy to assist you on our hotline.Per minute: xx Call 0800xxxx",
+                              lcl.hotLineConent2,
                               style: GoogleFonts.roboto(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 16.sp,
@@ -180,7 +183,7 @@ class HomeView extends StatelessWidget {
               ],
             ),
             Text(
-              "Aroma Experten-Hotline",
+              lcl!.homeCallNowIntro,
               style: GoogleFonts.roboto(
                 fontSize: 8.sp,
                 fontWeight: FontWeight.w500,
@@ -195,7 +198,7 @@ class HomeView extends StatelessWidget {
             spacing: 8.h,
             children: [
               Text(
-                "Great to have you here, Tanja!",
+                lcl.homeCallNowTitle,
                 style: GoogleFonts.roboto(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w500,
@@ -204,7 +207,7 @@ class HomeView extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               Text(
-                "If you need help or personal advice, just click on my photo.",
+                lcl.homeCallNowContent,
                 style: GoogleFonts.roboto(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w400,

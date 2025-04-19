@@ -9,14 +9,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pinput/pinput.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class OtpVerifyView extends StatelessWidget {
   const OtpVerifyView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final lcl = AppLocalizations.of(context);
     return Scaffold(
-      appBar: customAppbar1(title: "Forget Password"),
+      appBar: customAppbar1(title: lcl!.forgetPass),
       body: PaddingWrapper(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -26,7 +28,7 @@ class OtpVerifyView extends StatelessWidget {
               spacing: 24.h,
               children: [
                 Text(
-                  "Code has been send to infogmaila@gmail.com",
+                  "${lcl.otpMessage} infogmaila@gmail.com",
                   style: GoogleFonts.roboto(
                     fontWeight: FontWeight.w400,
                     fontSize: 15.sp,
@@ -78,7 +80,7 @@ class OtpVerifyView extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(bottom: 40.h),
               child: CustomButton(
-                btnTxt: "Continue",
+                btnTxt: lcl.continueText,
                 onPressed: () {
                   Get.toNamed(Routes.newPassword);
                 },

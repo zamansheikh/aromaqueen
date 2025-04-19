@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class NewPasswordView extends StatelessWidget {
   NewPasswordView({super.key});
@@ -18,8 +19,9 @@ class NewPasswordView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final lcl = AppLocalizations.of(context);
     return Scaffold(
-      appBar: customAppbar1(title: "Forget Password"),
+      appBar: customAppbar1(title: lcl!.forgetPass),
       body: PaddingWrapper(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -30,7 +32,7 @@ class NewPasswordView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Create Your New password",
+                  lcl.newPassTitle,
                   style: GoogleFonts.roboto(
                     fontWeight: FontWeight.w400,
                     fontSize: 16.sp,
@@ -52,14 +54,13 @@ class NewPasswordView extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(bottom: 40.h),
               child: CustomButton(
-                btnTxt: "Continue",
+                btnTxt: lcl.continueText,
                 onPressed: () {
                   showAlertLoader(
                     spinController: controller.spinAnimation,
                     nextRoute: Routes.signIn,
-                    body:
-                        "Your account is ready to use. You will be redirected to the Home page in a few seconds..",
-                    title: "Congratulations!",
+                    body: lcl.congratsContent,
+                    title: lcl.congratulations,
                   );
                 },
               ),
