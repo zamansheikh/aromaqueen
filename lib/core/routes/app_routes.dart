@@ -10,4 +10,12 @@ abstract class Routes {
   static const newPassword = '/new-password';
 
   //home feature routes
+  static const mainPage = "/main-page";
+  static const home = '/home';
+  static const search = '/search';
+  static const essentialOil = '/essential_oil';
+  static const favourite = '/favourite';
+  static const income = '/income';
+  static const notes = '/notes';
+  static const recepies = '/receoies';
 }

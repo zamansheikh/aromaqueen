@@ -13,23 +13,21 @@ import 'core/routes/app_pages.dart';
 import 'core/themes/app_theme.dart';
 import 'core/utils/loading_controller.dart'; // Correct import\
 
-
 //Error Handling state
-final GlobalKey <NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 void main() async {
-
-  FlutterError.onError = (FlutterErrorDetails details) {
-   WidgetsBinding.instance.addPostFrameCallback((_) {
-    if(navigatorKey.currentState?.overlay?.context.widget is! ErrorScreen){
-     MaterialPageRoute(
-        builder: (context) => ErrorScreen(
-          error: details.exceptionAsString(),
-        ),
-      );
-    }
-    });
-  };
+  // FlutterError.onError = (FlutterErrorDetails details) {
+  //  WidgetsBinding.instance.addPostFrameCallback((_) {
+  //   if(navigatorKey.currentState?.overlay?.context.widget is! ErrorScreen){
+  //    MaterialPageRoute(
+  //       builder: (context) => ErrorScreen(
+  //         error: details.exceptionAsString(),
+  //       ),
+  //     );
+  //   }
+  //   });
+  // };
 
   await GetStorage.init();
   runApp(const MyApp());
@@ -43,7 +41,7 @@ class MyApp extends StatelessWidget {
     // Initialize the ThemeController
     Get.put(ThemeController());
     return ScreenUtilInit(
-      designSize: const Size(360, 690),
+      designSize: const Size(390, 844),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {

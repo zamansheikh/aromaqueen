@@ -5,6 +5,14 @@ import 'package:aromaqueen/features/auth/views/otp_verify_view.dart';
 import 'package:aromaqueen/features/auth/views/sign_in_view.dart';
 import 'package:aromaqueen/features/auth/views/sign_up_view.dart';
 import 'package:aromaqueen/features/auth/views/verify_email_view.dart';
+import 'package:aromaqueen/features/home/bindings/home_binding.dart';
+import 'package:aromaqueen/features/home/views/essential_oil_view.dart';
+import 'package:aromaqueen/features/home/views/favourite_view.dart';
+import 'package:aromaqueen/features/home/views/home_view.dart';
+import 'package:aromaqueen/features/home/views/income_view.dart';
+import 'package:aromaqueen/features/home/views/notes_view.dart';
+import 'package:aromaqueen/features/home/views/recepies_view.dart';
+import 'package:aromaqueen/features/main_page.dart';
 import 'package:get/get.dart';
 
 part 'app_routes.dart';
@@ -41,8 +49,39 @@ class AppPages {
     ),
     GetPage(
       name: Routes.newPassword,
-      page: () => const NewPasswordView(),
+      page: () => NewPasswordView(),
       binding: AuthBinding(),
+    ),
+    // Home Feature Routes
+    GetPage(
+      name: Routes.mainPage,
+      page: () => MainPage(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: Routes.essentialOil,
+      page: () => EssentialOilView(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: Routes.favourite,
+      page: () => FavouriteView(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: Routes.income,
+      page: () => IncomeView(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: Routes.notes,
+      page: () => NotesView(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: Routes.recepies,
+      page: () => RecipesView(),
+      binding: HomeBinding(),
     ),
   ];
 }

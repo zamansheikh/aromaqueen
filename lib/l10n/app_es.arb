@@ -1,33 +1,44 @@
 {
-  "homeTitle": "Inicio",
-  "welcomeMessage": "¡Bienvenido a Mi App!",
-  "count": "Contador: {value}",
-  "increment": "Incrementar",
-  "@count": {
-    "placeholders": {
-      "value": {
-        "type": "String"
-      }
-    }
-  },
-  "changeLanguage": "Cambiar a español",
-  "@changeLanguage": {
-    "description": "Botón para cambiar el idioma de la aplicación a español",
-    "type": "String"
-  },
-  "darkMode": "Modo oscuro",
-  "@darkMode": {
-    "description": "Etiqueta para el interruptor de modo oscuro",
-    "type": "String"
-  },
-  "lightMode": "Modo claro",
-  "@lightMode": {
-    "description": "Etiqueta para el interruptor de modo claro",
-    "type": "String"
-  },
-  "ecomode": "Modo ecológico",
-  "@ecomode": {
-    "description": "Etiqueta para el interruptor de modo ecológico",
-    "type": "String"
-  }
-}
+  "registerNow": "Register Now" ,
+  "signUp": "Sign Up", 
+  "signIn": "Sign In",
+  "forgetPass" : "Forget Password", 
+  "continueText": "Continue",
+  "verify" : "Verify",
+  "congratulations" : "Congratulations",
+  "competition": "Competition",
+  "readMore" : "Read More",
+  "newsFeed" : "News Feed",      
+
+
+
+  "onBoardingTitle": "More than just an app",
+  "onBoardingContent1": "For women who want more from life.",
+  "onBoardingContent2": "Find the natural way to truly balance family, career, and your own needs.",
+  "onBoardingAgreement" : "By registering, you agree to our Terms of Use and Privacy Policy.",
+
+  "signUpTitle": "Create your Account",
+  "signUpAgreement":"I agree to the processing of Personal date",
+  "signUpAlreadyHaveAccount"  : "Already have an account?",
+
+  "signInTitle": "Login to your Account",
+  "signInRemmeber" : "Remember Me", 
+
+  "forgetPassTitle" : "Select which contact details should we use to reset your password.",
+
+  "otpMessage" : "Code has been send to",  
+  "newPassTitle": "Create Your New password", 
+  
+  "congratsContent": "Your account is ready to use. You will be redirected to the Home page in a few seconds..", 
+ 
+  "homeImageConent1" : "Inspire the community with your DIY project.",
+  "homeImageConent2" : "Advertising Space, Slider",
+  "homeCallNowIntro" : "Aroma Experten-Hotline",
+  "homeCallNowTitle" : "Great to have you here, Tanja!",
+  "homeCallNowContent": "If you need help or personal advice, just click on my photo." ,
+
+  "hotLineTitle" : "Aroma Expert Hotline",
+  "hotLineConent1" : "Would you like a personalized consultation with a trained aroma expert?",
+  "hotLineConent2" : "We are happy to assist you on our hotline. Per minute: xx Call 0800xxxx"              
+
+} 
