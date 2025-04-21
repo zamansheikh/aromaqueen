@@ -5,12 +5,14 @@ import 'package:aromaqueen/core/wrapper/padding_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class NotesView extends StatelessWidget {
   const NotesView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final lcl = AppLocalizations.of(context);
     return Scaffold(
       appBar: customAppbar2(hasNewsFeed: false),
       body: PaddingWrapper(
@@ -19,8 +21,8 @@ class NotesView extends StatelessWidget {
             Row(
               spacing: 12.w,
               children: [
-                tabs(isActive: false, title: "Recipes"),
-                tabs(isActive: true, title: "Essential Oils"),
+                tabs(isActive: false, title: lcl!.recepies),
+                tabs(isActive: true, title: lcl.essentialOils),
               ],
             ),
             Expanded(

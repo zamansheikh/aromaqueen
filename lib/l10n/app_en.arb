@@ -8,7 +8,9 @@
   "congratulations" : "Congratulations",
   "competition": "Competition",
   "readMore" : "Read More",
-  "newsFeed" : "News Feed",      
+  "newsFeed" : "News Feed",  
+  "recepies": "Recepies",
+  "essentialOils": "Essential Oils",    
 
 
 
@@ -39,6 +41,10 @@
 
   "hotLineTitle" : "Aroma Expert Hotline",
   "hotLineConent1" : "Would you like a personalized consultation with a trained aroma expert?",
-  "hotLineConent2" : "We are happy to assist you on our hotline. Per minute: xx Call 0800xxxx"              
+  "hotLineConent2" : "We are happy to assist you on our hotline. Per minute: xx Call 0800xxxx" ,
+
+  "incomeSub1" : "You think AromaQueen is a great idea and want to boost your pocket money?",
+  "incomeSub2" : "Register today in our partner program: (Link)",
+  "incomeTitle": "Then promote AromaQueen!"              
 
 } 
