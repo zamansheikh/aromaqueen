@@ -3,6 +3,7 @@ import 'package:aromaqueen/core/components/custom_input.dart';
 import 'package:aromaqueen/core/constants/icon_const.dart';
 import 'package:aromaqueen/core/constants/image_constants.dart';
 import 'package:aromaqueen/core/themes/color_constants.dart';
+import 'package:aromaqueen/core/utils/icon_render.dart';
 import 'package:aromaqueen/core/utils/image_render.dart';
 import 'package:aromaqueen/core/wrapper/bottom_sheet_wrapper.dart';
 import 'package:aromaqueen/core/wrapper/padding_wrapper.dart';
@@ -126,6 +127,7 @@ class OptionItem extends StatelessWidget {
                 height: 180.h,
               ),
                 AcneInfoCard(),
+                RecipeCard(),
             ],
           ),
         );
@@ -193,6 +195,93 @@ class AcneInfoCard extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class RecipeCard extends StatelessWidget {
+  const RecipeCard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16.0),
+        border: Border.all(color: Colors.grey.shade300),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  'Nr 128',
+                  style: TextStyle(
+                    fontSize: 22.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Icon(
+                  Icons.favorite,
+                  color: Colors.green.shade200,
+                  size: 28.0,
+                ),
+              ],
+            ),
+            const SizedBox(height: 16.0),
+            const Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Zutaten:',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    color: Colors.black87,
+                  ),
+                ),
+                SizedBox(height: 4.0),
+                Text(
+                  'Anwendung: Mische die ätherischen Öle und das Trägeröl.',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    color: Colors.black87,
+                  ),
+                ),
+                SizedBox(height: 4.0),
+                Text(
+                  'Tipps:',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    color: Colors.black87,
+                  ),
+                ),
+                SizedBox(height: 4.0),
+                Text(
+                  'Sicherheit:',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    color: Colors.black87,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 24.0),
+            Row(spacing: 8,
+                children: [
+                  iconRender(url: IconConst.noteIcon),
+                  Flexible(child: CustomInputField(controller: TextEditingController(), hintText: "Use the keyword serch", isCircular: true,)),
+                  iconRender(url: IconConst.deleteIcon)
+                ],
+              ),
+           
+          ],
+        ),
       ),
     );
   }
