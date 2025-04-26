@@ -19,7 +19,6 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final lcl = AppLocalizations.of(context);
     return Scaffold(
       appBar: customAppbar2(),
       body: Column(
@@ -112,7 +111,59 @@ class HomeView extends StatelessWidget {
     );
   }
 
-  Row contactHotline(context) {
+
+
+  Stack homeHeader() {
+    return Stack(
+      children: [
+        imageRender(
+          url: ImageConstants.onBoardingImage,
+          width: Get.width,
+          height: 200.h,
+        ),
+        Positioned(
+          top: (200.h - 80.h) / 2,
+          left: (Get.width - 170.w) / 8,
+
+          child: SizedBox(
+            width: 170.w,
+            height: 90.h,
+            child: Column(
+              children: [
+                Text(
+                  "Competition!",
+                  style: GoogleFonts.roboto(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 20.sp,
+                    color: ColorConstants.white,
+                  ),
+                ),
+                Text(
+                  "Inspire the community with your DIY project.",
+                  style: GoogleFonts.roboto(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14.sp,
+                    color: ColorConstants.lightGray,
+                  ),
+                ),
+                Text(
+                  "Read More..",
+                  style: GoogleFonts.roboto(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14.sp,
+                    color: ColorConstants.lightGray,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+  Row contactHotline(context, {int varient = 1}) {
     final lcl = AppLocalizations.of(context);
     return Row(
       spacing: 12.w,
@@ -192,6 +243,7 @@ class HomeView extends StatelessWidget {
                 ),
               ],
             ),
+            if(varient == 1 )
             Text(
               lcl!.homeCallNowIntro,
               style: GoogleFonts.roboto(
@@ -202,13 +254,13 @@ class HomeView extends StatelessWidget {
             ),
           ],
         ),
-
+        if(varient == 1)
         Flexible(
           child: Column(
             spacing: 8.h,
             children: [
               Text(
-                lcl.homeCallNowTitle,
+                lcl!.homeCallNowTitle,
                 style: GoogleFonts.roboto(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w500,
@@ -228,56 +280,14 @@ class HomeView extends StatelessWidget {
             ],
           ),
         ),
+        if(varient ==2)
+        SizedBox(width: 12,),
+        if(varient == 2)
+        Flexible(child: Text("Didn't find the right recipe? Call our expert hotline, just click on my picture.", style: GoogleFonts.roboto(fontSize: 14.sp, fontWeight: FontWeight.w400, color: ColorConstants.gray),))
       ],
     );
   }
 
-  Stack homeHeader() {
-    return Stack(
-      children: [
-        imageRender(
-          url: ImageConstants.onBoardingImage,
-          width: Get.width,
-          height: 200.h,
-        ),
-        Positioned(
-          top: (200.h - 80.h) / 2,
-          left: (Get.width - 170.w) / 8,
 
-          child: SizedBox(
-            width: 170.w,
-            height: 90.h,
-            child: Column(
-              children: [
-                Text(
-                  "Competition!",
-                  style: GoogleFonts.roboto(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 20.sp,
-                    color: ColorConstants.white,
-                  ),
-                ),
-                Text(
-                  "Inspire the community with your DIY project.",
-                  style: GoogleFonts.roboto(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 14.sp,
-                    color: ColorConstants.lightGray,
-                  ),
-                ),
-                Text(
-                  "Read More..",
-                  style: GoogleFonts.roboto(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 14.sp,
-                    color: ColorConstants.lightGray,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
+
+

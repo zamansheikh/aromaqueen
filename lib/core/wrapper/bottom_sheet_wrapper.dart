@@ -77,6 +77,7 @@ void showBottomSheetWrapper({required String title, required Widget child}) {
                               ),
                             ],
                           ),
+                          SizedBox(height: 20.h,),
 
                           // Header sheet content goes here
                           child,
