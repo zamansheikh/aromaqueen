@@ -1,3 +1,4 @@
+import 'package:aromaqueen/core/error/error_screen.dart';
 import 'package:aromaqueen/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,17 +15,18 @@ import 'core/utils/loading_controller.dart'; // Correct import\
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 void main() async {
-  // FlutterError.onError = (FlutterErrorDetails details) {
-  //  WidgetsBinding.instance.addPostFrameCallback((_) {
-  //   if(navigatorKey.currentState?.overlay?.context.widget is! ErrorScreen){
-  //    MaterialPageRoute(
-  //       builder: (context) => ErrorScreen(
-  //         error: details.exceptionAsString(),
-  //       ),
-  //     );
-  //   }
-  //   });
-  // };
+  FlutterError.onError = (FlutterErrorDetails details) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (navigatorKey.currentState?.overlay?.context.widget is! ErrorScreen) {
+        navigatorKey.currentState?.push(
+          MaterialPageRoute(
+            builder:
+                (context) => ErrorScreen(error: details.exceptionAsString()),
+          ),
+        );
+      }
+    });
+  };
 
   await GetStorage.init();
   runApp(const MyApp());
@@ -47,6 +49,7 @@ class MyApp extends StatelessWidget {
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
           themeMode: ThemeMode.light,
+          navigatorKey: navigatorKey,
           initialRoute: AppPages.initial,
           getPages: AppPages.routes,
           locale: Get.deviceLocale,
