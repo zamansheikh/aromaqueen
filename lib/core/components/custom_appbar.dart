@@ -1,4 +1,5 @@
 import 'package:aromaqueen/core/components/aroma_card.dart';
+import 'package:aromaqueen/core/components/right_drawer.dart';
 import 'package:aromaqueen/core/constants/icon_const.dart';
 import 'package:aromaqueen/core/constants/image_constants.dart';
 import 'package:aromaqueen/core/themes/color_constants.dart';
@@ -56,7 +57,12 @@ PreferredSize customAppbar2({bool hasNewsFeed = true}) {
                       size: 20,
                     ),
                   ),
-                iconRender(url: IconConst.hamburgerIcon, size: 20),
+                InkWell(
+                  onTap: () {
+                    Get.to(() => SwipeDismissiblePage());
+                  },
+                  child: iconRender(url: IconConst.hamburgerIcon, size: 20),
+                ),
               ],
             ),
           ],
