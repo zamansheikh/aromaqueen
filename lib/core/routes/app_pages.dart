@@ -8,7 +8,6 @@ import 'package:aromaqueen/features/auth/views/verify_email_view.dart';
 import 'package:aromaqueen/features/home/bindings/home_binding.dart';
 import 'package:aromaqueen/features/home/views/essential_oil_view.dart';
 import 'package:aromaqueen/features/home/views/favourite_view.dart';
-import 'package:aromaqueen/features/home/views/home_view.dart';
 import 'package:aromaqueen/features/home/views/income_view.dart';
 import 'package:aromaqueen/features/home/views/notes_view.dart';
 import 'package:aromaqueen/features/home/views/recepies_view.dart';
