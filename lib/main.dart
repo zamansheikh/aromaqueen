@@ -1,10 +1,8 @@
+import 'package:aromaqueen/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-// *** Ensure this import points to the GENERATED file ***
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get_storage/get_storage.dart';
 
 import 'core/config/app_constants.dart';
