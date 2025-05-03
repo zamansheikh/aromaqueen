@@ -55,7 +55,7 @@ class BottomNavigation extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           icon: SvgPicture.asset(
-            IconConst.shopIcon,
+            IconConst.community,
             color:
                 menuIndex == 3
                     ? ColorConstants.primaryDark
