@@ -1,4 +1,5 @@
 import 'package:aromaqueen/core/components/custom_appbar.dart';
+import 'package:aromaqueen/core/components/show_plant_details_buttom_sheet.dart';
 import 'package:aromaqueen/core/constants/plain_data.dart';
 import 'package:aromaqueen/core/themes/color_constants.dart';
 import 'package:aromaqueen/core/wrapper/padding_wrapper.dart';
@@ -30,39 +31,47 @@ class NotesView extends StatelessWidget {
                   String letter = PlantData.plantList.keys.elementAt(index);
                   List<String> plants = PlantData.plantList[letter]!;
 
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 8.0,
-                      horizontal: 16.0,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          letter,
-                          style: GoogleFonts.roboto(
-                            fontSize: 28.sp,
-                            fontWeight: FontWeight.w700,
-                            color: ColorConstants.dark,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        ...plants.asMap().entries.map((entry) {
-                          int plantIndex = entry.key + 1;
-                          String plant = entry.value;
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 4.0),
-                            child: Text(
-                              '$plantIndex. $plant',
-                              style: GoogleFonts.roboto(
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w500,
-                                color: ColorConstants.dark,
-                              ),
+                  return InkWell(
+                    onTap: () {
+                      String plantName = plants[index];
+                      showPlantDetailSheet(context, plantName);
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 8.0,
+                        horizontal: 16.0,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            letter,
+                            style: GoogleFonts.roboto(
+                              fontSize: 28.sp,
+                              fontWeight: FontWeight.w700,
+                              color: ColorConstants.dark,
                             ),
-                          );
-                        }),
-                      ],
+                          ),
+                          const SizedBox(height: 8),
+                          ...plants.asMap().entries.map((entry) {
+                            int plantIndex = entry.key + 1;
+                            String plant = entry.value;
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 4.0,
+                              ),
+                              child: Text(
+                                '$plantIndex. $plant',
+                                style: GoogleFonts.roboto(
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.w500,
+                                  color: ColorConstants.dark,
+                                ),
+                              ),
+                            );
+                          }),
+                        ],
+                      ),
                     ),
                   );
                 },

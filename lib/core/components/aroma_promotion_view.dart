@@ -1,8 +1,8 @@
 import 'package:aromaqueen/core/constants/image_constants.dart';
 import 'package:flutter/material.dart';
 
-class IncomeView extends StatelessWidget {
-  const IncomeView({super.key});
+class PromoteAromaQueenScreen extends StatelessWidget {
+  const PromoteAromaQueenScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
