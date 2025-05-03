@@ -3,22 +3,22 @@ import 'package:aromaqueen/core/components/custom_button.dart';
 import 'package:aromaqueen/core/routes/app_pages.dart';
 import 'package:aromaqueen/core/themes/color_constants.dart';
 import 'package:aromaqueen/core/wrapper/padding_wrapper.dart';
+import 'package:aromaqueen/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pinput/pinput.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class OtpVerifyView extends StatelessWidget {
   const OtpVerifyView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final lcl = AppLocalizations.of(context);
+
     return Scaffold(
-      appBar: customAppbar1(title: lcl!.forgetPass),
+      appBar: customAppbar1(title: AppLocalizations.of(context)!.forgetPass),
       body: PaddingWrapper(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -28,7 +28,7 @@ class OtpVerifyView extends StatelessWidget {
               spacing: 24.h,
               children: [
                 Text(
-                  "${lcl.otpMessage} infogmaila@gmail.com",
+                  "${AppLocalizations.of(context)!.otpMessage} infogmaila@gmail.com",
                   style: GoogleFonts.roboto(
                     fontWeight: FontWeight.w400,
                     fontSize: 15.sp,
@@ -80,7 +80,7 @@ class OtpVerifyView extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(bottom: 40.h),
               child: CustomButton(
-                btnTxt: lcl.continueText,
+                btnTxt: AppLocalizations.of(context)!.continueText,
                 onPressed: () {
                   Get.toNamed(Routes.newPassword);
                 },

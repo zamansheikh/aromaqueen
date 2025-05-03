@@ -6,11 +6,11 @@ import 'package:aromaqueen/core/controller/animation_controller.dart';
 import 'package:aromaqueen/core/routes/app_pages.dart';
 import 'package:aromaqueen/core/themes/color_constants.dart';
 import 'package:aromaqueen/core/wrapper/padding_wrapper.dart';
+import 'package:aromaqueen/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class NewPasswordView extends StatelessWidget {
   NewPasswordView({super.key});
@@ -19,9 +19,8 @@ class NewPasswordView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final lcl = AppLocalizations.of(context);
     return Scaffold(
-      appBar: customAppbar1(title: lcl!.forgetPass),
+      appBar: customAppbar1(title: AppLocalizations.of(context)!.forgetPass),
       body: PaddingWrapper(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -32,7 +31,7 @@ class NewPasswordView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  lcl.newPassTitle,
+                  AppLocalizations.of(context)!.newPassTitle,
                   style: GoogleFonts.roboto(
                     fontWeight: FontWeight.w400,
                     fontSize: 16.sp,
@@ -54,13 +53,13 @@ class NewPasswordView extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(bottom: 40.h),
               child: CustomButton(
-                btnTxt: lcl.continueText,
+                btnTxt: AppLocalizations.of(context)!.continueText,
                 onPressed: () {
                   showAlertLoader(
                     spinController: controller.spinAnimation,
                     nextRoute: Routes.signIn,
-                    body: lcl.congratsContent,
-                    title: lcl.congratulations,
+                    body: AppLocalizations.of(context)!.congratsContent,
+                    title: AppLocalizations.of(context)!.congratulations,
                   );
                 },
               ),

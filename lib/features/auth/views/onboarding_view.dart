@@ -6,11 +6,11 @@ import 'package:aromaqueen/core/themes/color_constants.dart';
 import 'package:aromaqueen/core/utils/icon_render.dart';
 import 'package:aromaqueen/core/utils/image_render.dart';
 import 'package:aromaqueen/core/wrapper/padding_wrapper.dart';
+import 'package:aromaqueen/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class OnboardingView extends StatelessWidget {
   const OnboardingView({super.key});

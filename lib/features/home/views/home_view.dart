@@ -8,11 +8,11 @@ import 'package:aromaqueen/core/utils/icon_render.dart';
 import 'package:aromaqueen/core/utils/image_render.dart';
 import 'package:aromaqueen/core/wrapper/bottom_sheet_wrapper.dart';
 import 'package:aromaqueen/core/wrapper/padding_wrapper.dart';
+import 'package:aromaqueen/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -112,7 +112,6 @@ class HomeView extends StatelessWidget {
   }
 
   Row contactHotline(context) {
-    final lcl = AppLocalizations.of(context);
     return Row(
       spacing: 12.w,
       children: [
@@ -126,7 +125,7 @@ class HomeView extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     showBottomSheetWrapper(
-                      title: lcl!.hotLineTitle,
+                      title: AppLocalizations.of(context)!.hotLineTitle,
                       child: SizedBox(
                         width: Get.width,
                         child: Column(
@@ -146,7 +145,7 @@ class HomeView extends StatelessWidget {
                             ),
                             SizedBox(height: 16.h),
                             Text(
-                              lcl.hotLineTitle,
+                              AppLocalizations.of(context)!.hotLineTitle,
                               style: GoogleFonts.roboto(
                                 fontWeight: FontWeight.w700,
                                 fontSize: 24.sp,
@@ -155,7 +154,7 @@ class HomeView extends StatelessWidget {
                             ),
                             SizedBox(height: 8.h),
                             Text(
-                              lcl.hotLineConent1,
+                              AppLocalizations.of(context)!.hotLineConent1,
                               style: GoogleFonts.roboto(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 16.sp,
@@ -165,7 +164,7 @@ class HomeView extends StatelessWidget {
                             ),
                             SizedBox(height: 24.h),
                             Text(
-                              lcl.hotLineConent2,
+                              AppLocalizations.of(context)!.hotLineConent2,
                               style: GoogleFonts.roboto(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 16.sp,
@@ -192,7 +191,7 @@ class HomeView extends StatelessWidget {
               ],
             ),
             Text(
-              lcl!.homeCallNowIntro,
+              AppLocalizations.of(context)!.homeCallNowIntro,
               style: GoogleFonts.roboto(
                 fontSize: 8.sp,
                 fontWeight: FontWeight.w500,
@@ -207,7 +206,7 @@ class HomeView extends StatelessWidget {
             spacing: 8.h,
             children: [
               Text(
-                lcl.homeCallNowTitle,
+                AppLocalizations.of(context)!.homeCallNowTitle,
                 style: GoogleFonts.roboto(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w500,
@@ -216,7 +215,7 @@ class HomeView extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               Text(
-                lcl.homeCallNowContent,
+                AppLocalizations.of(context)!.homeCallNowContent,
                 style: GoogleFonts.roboto(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w400,

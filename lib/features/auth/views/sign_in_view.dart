@@ -6,18 +6,18 @@ import 'package:aromaqueen/core/themes/color_constants.dart';
 import 'package:aromaqueen/core/utils/icon_render.dart';
 import 'package:aromaqueen/core/wrapper/padding_wrapper.dart';
 import 'package:aromaqueen/features/auth/controllers/auth_controller.dart';
+import 'package:aromaqueen/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SignInView extends StatelessWidget {
   const SignInView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final lcl = AppLocalizations.of(context); // shorthand
+
     return Scaffold(
       body: PaddingWrapper(
         child: ListView(
@@ -30,7 +30,7 @@ class SignInView extends StatelessWidget {
                 iconRender(url: IconConst.logoIcon, size: 120),
                 SizedBox(height: 40.h),
                 Text(
-                  lcl!.signInTitle,
+                  AppLocalizations.of(context)!.signInTitle,
                   style: GoogleFonts.roboto(
                     fontSize: 48.sp,
                     fontWeight: FontWeight.w700,
@@ -51,11 +51,11 @@ class SignInView extends StatelessWidget {
                 ),
 
                 SizedBox(height: 12.h),
-                AuthCheckBox(hasForgotPass: true, title: lcl.signInRemmeber),
+                AuthCheckBox(hasForgotPass: true, title: AppLocalizations.of(context)!.signInRemmeber),
                 SizedBox(height: 24.h),
 
                 CustomButton(
-                  btnTxt: lcl.signIn,
+                  btnTxt: AppLocalizations.of(context)!.signIn,
                   onPressed: () {
                     // Todo: take the user to home page
                     Get.offAllNamed(Routes.mainPage);
@@ -67,7 +67,7 @@ class SignInView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      lcl.signUpAlreadyHaveAccount,
+                      AppLocalizations.of(context)!.signUpAlreadyHaveAccount,
                       style: TextStyle(fontSize: 16, color: Colors.black54),
                     ),
                     GestureDetector(
@@ -75,7 +75,7 @@ class SignInView extends StatelessWidget {
                         Get.toNamed(Routes.signUp);
                       },
                       child: Text(
-                        lcl.signUp,
+                        AppLocalizations.of(context)!.signUp,
                         style: TextStyle(
                           fontSize: 16,
                           color: Colors.teal,
@@ -110,7 +110,6 @@ class AuthCheckBox extends StatelessWidget {
   Widget build(BuildContext context) {
     // Initialize the controller
     final AuthController controller = Get.find<AuthController>();
-    final lcl = AppLocalizations.of(context); // shorthand
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -143,7 +142,7 @@ class AuthCheckBox extends StatelessWidget {
               Get.toNamed(Routes.verifyEmail);
             },
             child: Text(
-              lcl!.forgetPass,
+              AppLocalizations.of(context)!.forgetPass,
               style: GoogleFonts.roboto(
                 fontSize: 14.sp,
                 color: ColorConstants.primary,
