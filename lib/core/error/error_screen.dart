@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-// ignore: unused_import
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ErrorScreen extends StatelessWidget {
   final String error;
@@ -28,6 +26,11 @@ class ErrorScreen extends StatelessWidget {
                 ),
               ),
               const Spacer(flex: 2),
+              Text(
+                "Error: $error",
+                style: Theme.of(context).textTheme.titleSmall,
+              ),
+              const SizedBox(height: 16),
               ErrorInfo(
                 title: "Lost in Space!",
                 description:
@@ -75,26 +78,24 @@ class ErrorInfo extends StatelessWidget {
           children: [
             Text(
               title,
-              style: Theme.of(context)
-                  .textTheme
-                  .headlineSmall!
-                  .copyWith(fontWeight: FontWeight.bold),
+              style: Theme.of(
+                context,
+              ).textTheme.headlineSmall!.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
-            Text(
-              description,
-              textAlign: TextAlign.center,
-            ),
+            Text(description, textAlign: TextAlign.center),
             const SizedBox(height: 16 * 2.5),
             button ??
                 ElevatedButton(
                   onPressed: press,
                   style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(double.infinity, 48),
-                      backgroundColor: Colors.black,
-                      foregroundColor: Colors.white,
-                      shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(8)))),
+                    minimumSize: const Size(double.infinity, 48),
+                    backgroundColor: Colors.black,
+                    foregroundColor: Colors.white,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(8)),
+                    ),
+                  ),
                   child: Text(btnText ?? "Retry".toUpperCase()),
                 ),
             const SizedBox(height: 16),

@@ -17,7 +17,7 @@ class OnboardingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final lcl = AppLocalizations.of(context); // shorthand
+    
     return Scaffold(
       body: Column(
         children: [
@@ -30,7 +30,7 @@ class OnboardingView extends StatelessWidget {
           imageRender(url: ImageConstants.logo, width: 100.w, height: 100.h),
           SizedBox(height: 20.h),
           Text(
-            lcl!.onBoardingTitle,
+            AppLocalizations.of(context)!.onBoardingTitle,
             style: GoogleFonts.roboto(
               fontSize: 28.sp,
               fontWeight: FontWeight.w700,
@@ -39,7 +39,7 @@ class OnboardingView extends StatelessWidget {
           ),
           SizedBox(height: 12.h),
           Text(
-            lcl.onBoardingContent1,
+            AppLocalizations.of(context)!.onBoardingContent1,
             textAlign: TextAlign.center,
             style: GoogleFonts.roboto(
               fontSize: 16.sp,
@@ -49,7 +49,7 @@ class OnboardingView extends StatelessWidget {
           ),
           SizedBox(height: 8.h),
           Text(
-            lcl.onBoardingContent2,
+            AppLocalizations.of(context)!.onBoardingContent2,
             style: GoogleFonts.roboto(
               fontSize: 16.sp,
               fontWeight: FontWeight.w400,
@@ -61,7 +61,7 @@ class OnboardingView extends StatelessWidget {
           // Register button -> takes the user to sign in page
           PaddingWrapper(
             child: CustomButton(
-              btnTxt: lcl.registerNow,
+              btnTxt: AppLocalizations.of(context)!.registerNow,
               onPressed: () {
                 Get.toNamed(Routes.signIn);
               },
@@ -96,7 +96,7 @@ class OnboardingView extends StatelessWidget {
           SizedBox(height: 36.h),
           PaddingWrapper(
             child: Text(
-              lcl.onBoardingAgreement,
+              AppLocalizations.of(context)!.onBoardingAgreement,
               style: GoogleFonts.roboto(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w400,
