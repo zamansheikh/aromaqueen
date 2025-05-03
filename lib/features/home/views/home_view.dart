@@ -19,7 +19,6 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final lcl = AppLocalizations.of(context);
     return Scaffold(
       appBar: customAppbar2(),
       body: Column(
