@@ -30,11 +30,15 @@ class HomeView extends StatelessWidget {
               children: [
                 contactHotline(context),
                 SizedBox(height: 24.h),
-                CustomInputField(
-                  controller: TextEditingController(),
-                  postfixIcon: IconConst.searchIcon,
-                  isCircular: true,
-                  hintText: "Use the keyword search ",
+                InkWell(
+                  onTap: () => Get.toNamed(Routes.search),
+                  child: CustomInputField(
+                    isEnabled: false,
+                    controller: TextEditingController(),
+                    postfixIcon: IconConst.searchIcon,
+                    isCircular: true,
+                    hintText: "Use the keyword search ",
+                  ),
                 ),
                 SizedBox(height: 24.h),
                 homeBottom(),

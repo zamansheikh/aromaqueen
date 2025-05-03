@@ -19,6 +19,7 @@ class CustomInputField extends StatelessWidget {
     this.maxLines = 1,
     this.hintText,
     this.background,
+    this.isEnabled = true,
     this.isNumber = false,
     this.isCircular = false,
     this.onChanged,
@@ -29,6 +30,7 @@ class CustomInputField extends StatelessWidget {
   final bool isEmail;
   final bool isPassword;
   final String? prefixIcon;
+  final bool isEnabled;
   final String? postfixIcon;
   final int maxLines;
   final TextEditingController controller;
@@ -79,6 +81,7 @@ class CustomInputField extends StatelessWidget {
                 Flexible(
                   child: TextFormField(
                     onChanged: onChanged,
+                    enabled: isEnabled,
                     keyboardType: isNumber ? TextInputType.number : null,
                     inputFormatters:
                         isNumber

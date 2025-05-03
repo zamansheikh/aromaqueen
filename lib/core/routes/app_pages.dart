@@ -11,6 +11,7 @@ import 'package:aromaqueen/features/home/views/favourite_view.dart';
 import 'package:aromaqueen/features/home/views/income_view.dart';
 import 'package:aromaqueen/features/home/views/notes_view.dart';
 import 'package:aromaqueen/features/home/views/recepies_view.dart';
+import 'package:aromaqueen/features/home/views/search_screen.dart';
 import 'package:aromaqueen/features/main_page.dart';
 import 'package:get/get.dart';
 
@@ -80,6 +81,11 @@ class AppPages {
     GetPage(
       name: Routes.recepies,
       page: () => RecipesView(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: Routes.search,
+      page: () => SearchScreen(),
       binding: HomeBinding(),
     ),
   ];
