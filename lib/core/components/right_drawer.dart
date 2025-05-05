@@ -52,7 +52,7 @@ class SwipeDismissiblePage extends StatelessWidget {
                 menuItem(
                   'Data Protection',
                   onTap: () {
-                    Get.to(() => PrivacyPolicyScreen);
+                    Get.to(() => PrivacyPolicyScreen());
                   },
                 ),
               ],

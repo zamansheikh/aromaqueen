@@ -1,3 +1,4 @@
+import 'package:aromaqueen/core/themes/color_constants.dart';
 import 'package:flutter/material.dart';
 
 class PrivacyPolicyScreen extends StatelessWidget {
@@ -7,8 +8,11 @@ class PrivacyPolicyScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Privacy Policy'),
-        leading: const BackButton(),
+        title: const Text(
+          'Privacy Policy',
+          style: TextStyle(color: ColorConstants.dark),
+        ),
+        leading: const BackButton(color: ColorConstants.dark),
       ),
 
       body: Padding(

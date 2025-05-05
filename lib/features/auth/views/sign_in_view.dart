@@ -17,7 +17,6 @@ class SignInView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: PaddingWrapper(
         child: ListView(
@@ -51,7 +50,10 @@ class SignInView extends StatelessWidget {
                 ),
 
                 SizedBox(height: 12.h),
-                AuthCheckBox(hasForgotPass: true, title: AppLocalizations.of(context)!.signInRemmeber),
+                AuthCheckBox(
+                  hasForgotPass: true,
+                  title: AppLocalizations.of(context)!.signInRemmeber,
+                ),
                 SizedBox(height: 24.h),
 
                 CustomButton(
@@ -145,7 +147,7 @@ class AuthCheckBox extends StatelessWidget {
               AppLocalizations.of(context)!.forgetPass,
               style: GoogleFonts.roboto(
                 fontSize: 14.sp,
-                color: ColorConstants.primary,
+                color: ColorConstants.primaryDark,
               ),
             ),
           ),

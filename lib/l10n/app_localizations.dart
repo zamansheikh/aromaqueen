@@ -215,6 +215,12 @@ abstract class AppLocalizations {
   /// **'Select which contact details should we use to reset your password.'**
   String get forgetPassTitle;
 
+  /// No description provided for @getStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'Get Started'**
+  String get getStarted;
+
   /// No description provided for @otpMessage.
   ///
   /// In en, this message translates to:

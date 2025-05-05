@@ -33,9 +33,8 @@ class PaymentRenewScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
               child: Image.asset(
                 'assets/images/card_sample.png', // Replace with your image path
-                height: 180,
                 width: double.infinity,
-                fit: BoxFit.cover,
+                fit: BoxFit.fitWidth,
               ),
             ),
 

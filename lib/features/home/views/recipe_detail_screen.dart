@@ -1,6 +1,7 @@
 import 'package:aromaqueen/core/constants/image_constants.dart';
 import 'package:aromaqueen/features/home/views/favorite_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class RecipeDetailScreen extends StatefulWidget {
@@ -79,7 +80,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
                         onPressed: () {
                           final recipe = {
                             "title": widget.title,
-                            "image": "assets/images/hot_line.png",
+                            "image": "assets/images/hotline.jpg",
                           };
                           final isFav = FavoriteManager().isFavorite(recipe);
                           if (isFav) {
@@ -93,7 +94,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
                         icon: Icon(
                           FavoriteManager().isFavorite({
                                 "title": widget.title,
-                                "image": "assets/images/hot_line.png",
+                                "image": "assets/images/hotline.jpg",
                               })
                               ? Icons.favorite
                               : Icons.favorite_border,
@@ -175,33 +176,45 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 children: [
-                  IconButton(
-                    icon: const Icon(Icons.note_alt_outlined, size: 30),
-                    onPressed: () {
-                      setState(() {
-                        noteClicked = !noteClicked;
-                      });
-                    },
+                  SvgPicture.asset(
+                    'assets/icons/note.svg',
+                    width: 28.w,
+                    height: 28.w,
                   ),
                   const SizedBox(width: 10),
                   Expanded(
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Use the keyword search',
-                        contentPadding: const EdgeInsets.symmetric(
-                          vertical: 8,
-                          horizontal: 16,
+                    child: Stack(
+                      alignment: Alignment.centerRight,
+                      children: [
+                        TextField(
+                          decoration: InputDecoration(
+                            hintText: 'Use the keyword search',
+                            contentPadding: const EdgeInsets.symmetric(
+                              vertical: 8,
+                              horizontal: 16,
+                            ),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(40),
+                            ),
+                          ),
                         ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(40),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 12.0),
+                          child: SvgPicture.asset(
+                            'assets/icons/ok.svg',
+                            width: 24.w,
+                            height: 24.w,
+                          ),
                         ),
-                      ),
+                      ],
                     ),
                   ),
                   const SizedBox(width: 10),
-                  const Icon(Icons.check_circle, color: Colors.green, size: 30),
-                  const SizedBox(width: 10),
-                  const Icon(Icons.delete_outline, size: 30),
+                  SvgPicture.asset(
+                    'assets/icons/delete.svg',
+                    width: 24.w,
+                    height: 24.w,
+                  ),
                 ],
               ),
             ),

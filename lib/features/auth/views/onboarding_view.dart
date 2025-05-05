@@ -17,7 +17,6 @@ class OnboardingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       body: Column(
         children: [
@@ -48,20 +47,23 @@ class OnboardingView extends StatelessWidget {
             ),
           ),
           SizedBox(height: 8.h),
-          Text(
-            AppLocalizations.of(context)!.onBoardingContent2,
-            style: GoogleFonts.roboto(
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w400,
-              color: ColorConstants.gray,
+          Container(
+            width: .85.sw,
+            child: Text(
+              AppLocalizations.of(context)!.onBoardingContent2,
+              style: GoogleFonts.roboto(
+                fontSize: 16.sp,
+                fontWeight: FontWeight.w400,
+                color: ColorConstants.gray,
+              ),
+              textAlign: TextAlign.center,
             ),
-            textAlign: TextAlign.center,
           ),
           SizedBox(height: 36.h),
           // Register button -> takes the user to sign in page
           PaddingWrapper(
             child: CustomButton(
-              btnTxt: AppLocalizations.of(context)!.registerNow,
+              btnTxt: AppLocalizations.of(context)!.getStarted,
               onPressed: () {
                 Get.toNamed(Routes.signIn);
               },
@@ -94,15 +96,46 @@ class OnboardingView extends StatelessWidget {
             ),
           ),
           SizedBox(height: 36.h),
-          PaddingWrapper(
-            child: Text(
-              AppLocalizations.of(context)!.onBoardingAgreement,
-              style: GoogleFonts.roboto(
-                fontSize: 14.sp,
-                fontWeight: FontWeight.w400,
-                color: ColorConstants.primaryDark,
-              ),
+          SizedBox(
+            width: .85.sw,
+            child: RichText(
               textAlign: TextAlign.center,
+              text: TextSpan(
+                children: [
+                  TextSpan(
+                    text: 'By registering, you agree to our ',
+                    style: GoogleFonts.roboto(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
+                      color: ColorConstants.darkGray,
+                    ),
+                  ),
+                  TextSpan(
+                    text: 'Terms of use ',
+                    style: GoogleFonts.roboto(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
+                      color: ColorConstants.primaryDark,
+                    ),
+                  ),
+                  TextSpan(
+                    text: '& ',
+                    style: GoogleFonts.roboto(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
+                      color: ColorConstants.darkGray,
+                    ),
+                  ),
+                  TextSpan(
+                    text: 'Privacy Policy ',
+                    style: GoogleFonts.roboto(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
+                      color: ColorConstants.primaryDark,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],

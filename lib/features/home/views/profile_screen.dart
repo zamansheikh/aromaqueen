@@ -8,7 +8,7 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  bool isEditMode = false;
+  bool isEditMode = true;
 
   // Controllers for fields
   final fullNameController = TextEditingController(text: "John Doe");
@@ -26,7 +26,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
         backgroundColor: Colors.white,
         elevation: 0,
         leading: BackButton(color: Colors.black),
-        title: const Text("Edit Profile", style: TextStyle(color: Colors.black)),
+        title: const Text(
+          "Edit Profile",
+          style: TextStyle(color: Colors.black),
+        ),
         actions: [
           IconButton(
             icon: const Icon(Icons.more_vert, color: Colors.black),
@@ -47,29 +50,31 @@ class _ProfileScreenState extends State<ProfileScreen> {
             buildField("Email", emailController),
             buildField("Phone", phoneController),
             buildField("Address", addressController),
-
-            const SizedBox(height: 30),
-
+            const SizedBox(height: 48),
             if (isEditMode)
-              Center(
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFA3D9C6),
-                    padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 16),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(40),
-                    ),
-                    elevation: 10,
-                    shadowColor: Colors.black12,
+              GestureDetector(
+                onTap: () {
+                  setState(() => isEditMode = false);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text("Profile Updated!")),
+                  );
+                },
+                child: Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 80,
+                    vertical: 16,
                   ),
-                  onPressed: () {
-                    // Save logic here
-                    setState(() => isEditMode = false);
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text("Profile Updated!")),
-                    );
-                  },
-                  child: const Text("Update", style: TextStyle(color: Colors.black, fontSize: 16)),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFA3D9C6),
+                    borderRadius: BorderRadius.circular(40),
+                  ),
+                  child: Center(
+                    child: const Text(
+                      "Update",
+                      style: TextStyle(color: Colors.black, fontSize: 16),
+                    ),
+                  ),
                 ),
               ),
           ],
@@ -84,9 +89,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(label,
-              style: const TextStyle(
-                  fontWeight: FontWeight.bold, fontSize: 16, color: Colors.black)),
+          Text(
+            label,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+              color: Colors.black,
+            ),
+          ),
           const SizedBox(height: 6),
           TextField(
             controller: controller,
@@ -96,7 +106,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
             decoration: InputDecoration(
               hintText: "Enter your $label...",
               hintStyle: const TextStyle(color: Colors.grey),
-              contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+              contentPadding: const EdgeInsets.symmetric(
+                horizontal: 14,
+                vertical: 10,
+              ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
                 borderSide: BorderSide(color: Colors.green.shade100),

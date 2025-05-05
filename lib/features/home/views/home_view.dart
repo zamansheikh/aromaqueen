@@ -134,12 +134,19 @@ class HomeView extends StatelessWidget {
                         width: Get.width,
                         child: Column(
                           children: [
-                            CircleAvatar(
-                              radius: 100,
-                              child: imageRender(
-                                url: ImageConstants.hotline,
-                                width: 200.w,
-                                height: 200.h,
+                            Container(
+                              decoration: BoxDecoration(
+                                color: ColorConstants.primaryDark,
+                                shape: BoxShape.circle,
+                              ),
+                              padding: EdgeInsets.all(8),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(86.r),
+                                child: imageRender(
+                                  url: ImageConstants.hotline,
+                                  width: 172.w,
+                                  height: 172.h,
+                                ),
                               ),
                             ),
                             SizedBox(height: 32.h),
@@ -183,12 +190,12 @@ class HomeView extends StatelessWidget {
                       ),
                     );
                   },
-                  child: CircleAvatar(
-                    radius: 36,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(36.r),
                     child: imageRender(
                       url: ImageConstants.hotline,
-                      width: 120,
-                      height: 120,
+                      width: 72.w,
+                      height: 72.w,
                     ),
                   ),
                 ),

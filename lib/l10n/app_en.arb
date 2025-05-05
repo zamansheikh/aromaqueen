@@ -27,6 +27,7 @@
 
   "forgetPassTitle" : "Select which contact details should we use to reset your password.",
 
+  "getStarted" : "Get Started",  
   "otpMessage" : "Code has been send to",  
   "newPassTitle": "Create Your New password", 
   

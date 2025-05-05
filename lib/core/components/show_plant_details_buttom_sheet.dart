@@ -112,6 +112,7 @@ class _PlantDetailBottomSheetState extends State<PlantDetailBottomSheet> {
           // Text Area
           Container(
             padding: const EdgeInsets.all(12),
+            height: 200,
             decoration: BoxDecoration(
               border: Border.all(color: Colors.grey.shade300),
               borderRadius: BorderRadius.circular(12),
@@ -122,7 +123,6 @@ class _PlantDetailBottomSheetState extends State<PlantDetailBottomSheet> {
               style: const TextStyle(fontSize: 14),
             ),
           ),
-          const SizedBox(height: 80),
         ],
       ),
     );

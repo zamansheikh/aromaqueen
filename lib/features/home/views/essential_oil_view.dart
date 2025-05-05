@@ -246,6 +246,7 @@ class _EssentialOilViewState extends State<EssentialOilView> {
 
         Flexible(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             spacing: 8.h,
             children: [
               Text(
@@ -255,7 +256,7 @@ class _EssentialOilViewState extends State<EssentialOilView> {
                   fontWeight: FontWeight.w500,
                   color: ColorConstants.darkGray,
                 ),
-                textAlign: TextAlign.center,
+                textAlign: TextAlign.start,
               ),
               Text(
                 AppLocalizations.of(context)!.homeCallNowContent,
@@ -264,7 +265,7 @@ class _EssentialOilViewState extends State<EssentialOilView> {
                   fontWeight: FontWeight.w400,
                   color: ColorConstants.darkGray,
                 ),
-                textAlign: TextAlign.center,
+                textAlign: TextAlign.start,
               ),
             ],
           ),

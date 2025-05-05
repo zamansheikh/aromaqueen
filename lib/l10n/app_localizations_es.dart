@@ -69,6 +69,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get forgetPassTitle => 'Select which contact details should we use to reset your password.';
 
   @override
+  String get getStarted => 'Get Started';
+
+  @override
   String get otpMessage => 'Code has been send to';
 
   @override
