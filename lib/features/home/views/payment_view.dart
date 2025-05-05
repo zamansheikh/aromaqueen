@@ -1,4 +1,6 @@
+import 'package:aromaqueen/features/home/views/upgrade_plan_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class PaymentRenewScreen extends StatelessWidget {
   const PaymentRenewScreen({super.key});
@@ -70,7 +72,7 @@ class PaymentRenewScreen extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  // Add your update payment logic here
+                  Get.to(() => UpgradePlanScreen());
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFFA3D9C6),

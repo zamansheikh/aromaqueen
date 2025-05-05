@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
           themeMode: ThemeMode.light,
-          navigatorKey: navigatorKey,
+          // navigatorKey: navigatorKey,
           initialRoute: AppPages.initial,
           getPages: AppPages.routes,
           locale: Get.deviceLocale,

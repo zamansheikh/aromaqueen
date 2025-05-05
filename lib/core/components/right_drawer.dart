@@ -1,6 +1,7 @@
 // right_drawer.dart
 import 'package:aromaqueen/core/constants/image_constants.dart';
 import 'package:aromaqueen/features/home/views/payment_view.dart';
+import 'package:aromaqueen/features/home/views/privacy_policy_screen.dart';
 import 'package:aromaqueen/features/home/views/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -48,7 +49,12 @@ class SwipeDismissiblePage extends StatelessWidget {
                     Get.to(const PaymentRenewScreen());
                   },
                 ),
-                menuItem('Data Protection'),
+                menuItem(
+                  'Data Protection',
+                  onTap: () {
+                    Get.to(() => PrivacyPolicyScreen);
+                  },
+                ),
               ],
             ),
           ),
