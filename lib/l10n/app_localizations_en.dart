@@ -45,10 +45,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get onBoardingContent1 => 'For women who want more from life.';
 
   @override
-  String get onBoardingContent2 => 'Find the natural way to truly balance family, career, and your own needs.';
+  String get onBoardingContent2 =>
+      'Find the natural way to truly balance family, career, and your own needs.';
 
   @override
-  String get onBoardingAgreement => 'By registering, you agree to our Terms of Use and Privacy Policy.';
+  String get onBoardingAgreement =>
+      'By registering, you agree to our Terms of Use and Privacy Policy.';
 
   @override
   String get signUpTitle => 'Create your Account';
@@ -66,7 +68,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get signInRemmeber => 'Remember Me';
 
   @override
-  String get forgetPassTitle => 'Select which contact details should we use to reset your password.';
+  String get forgetPassTitle =>
+      'Select which contact details should we use to reset your password.';
 
   @override
   String get getStarted => 'Get Started';
@@ -78,7 +81,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get newPassTitle => 'Create Your New password';
 
   @override
-  String get congratsContent => 'Your account is ready to use. You will be redirected to the Home page in a few seconds..';
+  String get congratsContent =>
+      'Your account is ready to use. You will be redirected to the Home page in a few seconds..';
 
   @override
   String get homeImageConent1 => 'Inspire the community with your DIY project.';
@@ -93,14 +97,17 @@ class AppLocalizationsEn extends AppLocalizations {
   String get homeCallNowTitle => 'Great to have you here, Tanja!';
 
   @override
-  String get homeCallNowContent => 'If you need help or personal advice, just click on my photo.';
+  String get homeCallNowContent =>
+      'If you need help or personal advice, just click on my photo.';
 
   @override
   String get hotLineTitle => 'Aroma Expert Hotline';
 
   @override
-  String get hotLineConent1 => 'Would you like a personalized consultation with a trained aroma expert?';
+  String get hotLineConent1 =>
+      'Would you like a personalized consultation with a trained aroma expert?';
 
   @override
-  String get hotLineConent2 => 'We are happy to assist you on our hotline. Per minute: xx Call 0800xxxx';
+  String get hotLineConent2 =>
+      'We are happy to assist you on our hotline. Per minute: xx Call 0800xxxx';
 }

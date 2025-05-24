@@ -2,7 +2,7 @@ import 'package:aromaqueen/core/components/bottom_navigation.dart';
 import 'package:aromaqueen/features/home/views/community_view.dart';
 import 'package:aromaqueen/features/home/views/essential_oil_view.dart';
 import 'package:aromaqueen/features/home/views/home_view.dart';
-import 'package:aromaqueen/features/home/views/training_view.dart';
+import 'package:aromaqueen/features/training/view/training_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
