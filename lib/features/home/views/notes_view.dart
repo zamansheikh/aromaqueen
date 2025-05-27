@@ -7,8 +7,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class NotesView extends StatelessWidget {
+class NotesView extends StatefulWidget {
   const NotesView({super.key});
+
+  @override
+  State<NotesView> createState() => _NotesViewState();
+}
+
+class _NotesViewState extends State<NotesView> {
+  int selectedTabIndex = 1; // Start with Essential Oils tab (index 1)
 
   @override
   Widget build(BuildContext context) {
@@ -16,25 +23,44 @@ class NotesView extends StatelessWidget {
       appBar: customAppbar2(hasNewsFeed: false),
       body: PaddingWrapper(
         child: Column(
-          children: [
+          children: [            
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               spacing: 12.w,
               children: [
-                tabs(isActive: false, title: "Recipes"),
-                tabs(isActive: true, title: "Essential Oils"),
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectedTabIndex = 0;
+                      });
+                    },
+                    child: tabs(isActive: selectedTabIndex == 0, title: "Recipes"),
+                  ),
+                ),
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectedTabIndex = 1;
+                      });
+                    },
+                    child: tabs(isActive: selectedTabIndex == 1, title: "Essential Oils"),
+                  ),
+                ),
               ],
-            ),
-            Expanded(
+            ),            Expanded(
               child: ListView.builder(
-                itemCount: PlantData.plantList.length,
+                itemCount: selectedTabIndex == 0 ? PlantData.recipes.length : PlantData.essentialOils.length,
                 itemBuilder: (context, index) {
-                  String letter = PlantData.plantList.keys.elementAt(index);
-                  List<String> plants = PlantData.plantList[letter]!;
+                  Map<String, List<String>> currentData = selectedTabIndex == 0 ? PlantData.recipes : PlantData.essentialOils;
+                  String letter = currentData.keys.elementAt(index);
+                  List<String> items = currentData[letter]!;
 
                   return InkWell(
                     onTap: () {
-                      String plantName = plants[index];
-                      showPlantDetailSheet(context, plantName);
+                      String itemName = items[index];
+                      showPlantDetailSheet(context, itemName);
                     },
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
@@ -53,15 +79,15 @@ class NotesView extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(height: 8),
-                          ...plants.asMap().entries.map((entry) {
-                            int plantIndex = entry.key + 1;
-                            String plant = entry.value;
+                          ...items.asMap().entries.map((entry) {
+                            int itemIndex = entry.key + 1;
+                            String item = entry.value;
                             return Padding(
                               padding: const EdgeInsets.symmetric(
                                 vertical: 4.0,
                               ),
                               child: Text(
-                                '$plantIndex. $plant',
+                                '$itemIndex. $item',
                                 style: GoogleFonts.roboto(
                                   fontSize: 14.sp,
                                   fontWeight: FontWeight.w500,
@@ -82,24 +108,20 @@ class NotesView extends StatelessWidget {
       ),
     );
   }
-
-  Flexible tabs({required String title, required bool isActive}) {
-    return Flexible(
-      flex: 1,
-      child: Container(
-        decoration: BoxDecoration(
-          color: isActive ? ColorConstants.primary : ColorConstants.lightGray,
-          borderRadius: BorderRadius.circular(8.r),
-        ),
-        padding: EdgeInsets.symmetric(vertical: 12.h),
-        child: Center(
-          child: Text(
-            title,
-            style: TextStyle(
-              fontSize: 14.sp,
-              fontWeight: FontWeight.w500,
-              color: ColorConstants.dark,
-            ),
+  Container tabs({required String title, required bool isActive}) {
+    return Container(
+      decoration: BoxDecoration(
+        color: isActive ? ColorConstants.primary : ColorConstants.lightGray,
+        borderRadius: BorderRadius.circular(8.r),
+      ),
+      padding: EdgeInsets.symmetric(vertical: 12.h),
+      child: Center(
+        child: Text(
+          title,
+          style: TextStyle(
+            fontSize: 14.sp,
+            fontWeight: FontWeight.w500,
+            color: ColorConstants.dark,
           ),
         ),
       ),
