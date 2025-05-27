@@ -176,10 +176,17 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 children: [
-                  SvgPicture.asset(
-                    'assets/icons/note.svg',
-                    width: 28.w,
-                    height: 28.w,
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        noteClicked = !noteClicked;
+                      });
+                    },
+                    child: SvgPicture.asset(
+                      'assets/icons/note.svg',
+                      width: 28.w,
+                      height: 28.w,
+                    ),
                   ),
                   const SizedBox(width: 10),
                   Expanded(
