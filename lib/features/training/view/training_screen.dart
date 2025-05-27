@@ -21,14 +21,14 @@ class TrainingView extends StatelessWidget {
             return Padding(
               padding: const EdgeInsets.all(12.0),
               child: Card(
-                elevation: 4,
+                elevation: 2,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
+                  borderRadius: BorderRadius.circular(8),
                 ),
                 child: Column(
                   children: [
                     ClipRRect(
-                      borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+                      borderRadius: const BorderRadius.vertical(top: Radius.circular(8)),
                       child: Image.network(
                         course.imageUrl,
                         height: 180,
@@ -76,7 +76,7 @@ class TrainingView extends StatelessWidget {
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: const Color(0xFF64C29E), // soft green
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(12),
+                                  borderRadius: BorderRadius.circular(6),
                                 ),
                               ),
                               child: const Text("View This Course", style: TextStyle(color: Colors.black),),

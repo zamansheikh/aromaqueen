@@ -2,11 +2,100 @@ import 'package:aromaqueen/core/components/custom_appbar.dart';
 import 'package:aromaqueen/core/themes/color_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_html/flutter_html.dart';
 
 class OilDescriptionScreen extends StatelessWidget {
   final String? oilName; // Optional parameter for oil name
   const OilDescriptionScreen({super.key, this.oilName});
+
+  // HTML content for Bitterorange (Bitter Orange) essential oil
+  static const String bitterOrangeHtml = '''
+    <div style="font-family: 'Roboto', sans-serif; line-height: 1.6; color: #333;">
+      
+      <div style="background-color: #f8f9ff; padding: 16px; border-radius: 12px; margin-bottom: 16px; border-left: 4px solid #6366f1;">
+        <h2 style="color: #4338ca; margin: 0 0 8px 0; font-size: 18px; font-weight: 700;">Beschreibung</h2>
+        <p style="margin: 0; font-size: 14px;">Das ätherische Öl der Bitterorange wird hauptsächlich durch Kaltpressung der Schale gewonnen. Es hat einen kräftigen, frischen, leicht herben Zitrusduft.</p>
+      </div>
+
+      <div style="background-color: #fff; padding: 16px; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid #e5e7eb;">
+        <h3 style="color: #333; margin: 0 0 12px 0; font-size: 16px; font-weight: 600;">Wichtigste Anwendungsgebiete in der Aromatherapie</h3>
+        <ul style="margin: 0; padding-left: 20px;">
+          <li style="margin-bottom: 8px; font-size: 14px;">Belebung und Erfrischung</li>
+          <li style="margin-bottom: 8px; font-size: 14px;">Unterstützung bei Konzentrationsschwäche</li>
+          <li style="margin-bottom: 8px; font-size: 14px;">Stimmungsaufhellung bei Melancholie und Stress</li>
+          <li style="margin-bottom: 8px; font-size: 14px;">Förderung der Verdauung</li>
+        </ul>
+      </div>
+
+      <div style="background-color: #fff; padding: 16px; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid #e5e7eb;">
+        <h3 style="color: #333; margin: 0 0 12px 0; font-size: 16px; font-weight: 600;">Körperliche Haupt-Wirkungen</h3>
+        <ul style="margin: 0; padding-left: 20px;">
+          <li style="margin-bottom: 8px; font-size: 14px;">Anregend und durchblutungsfördernd</li>
+          <li style="margin-bottom: 8px; font-size: 14px;">Verdauungsfördernd</li>
+          <li style="margin-bottom: 8px; font-size: 14px;">Krampflösend</li>
+          <li style="margin-bottom: 8px; font-size: 14px;">Entzündungshemmend</li>
+        </ul>
+      </div>
+
+      <div style="background-color: #fff; padding: 16px; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid #e5e7eb;">
+        <h3 style="color: #333; margin: 0 0 12px 0; font-size: 16px; font-weight: 600;">Seelische Haupt-Wirkungen</h3>
+        <ul style="margin: 0; padding-left: 20px;">
+          <li style="margin-bottom: 8px; font-size: 14px;">Stimmungsaufhellend</li>
+          <li style="margin-bottom: 8px; font-size: 14px;">Konzentrationsfördernd</li>
+          <li style="margin-bottom: 8px; font-size: 14px;">Stressmindernd</li>
+          <li style="margin-bottom: 8px; font-size: 14px;">Belebend</li>
+        </ul>
+      </div>
+
+      <div style="background-color: #f8f9ff; padding: 16px; border-radius: 12px; margin-bottom: 16px; border-left: 4px solid #6366f1;">
+        <h3 style="color: #4338ca; margin: 0 0 8px 0; font-size: 16px; font-weight: 600;">Chakra</h3>
+        <p style="margin: 0; font-size: 14px;">Solarplexus-Chakra (Energiezentrum für Selbstbewusstsein und Willenskraft)</p>
+      </div>
+
+      <div style="background-color: #fff; padding: 16px; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid #e5e7eb;">
+        <h3 style="color: #333; margin: 0 0 12px 0; font-size: 16px; font-weight: 600;">Hauptanwendungen</h3>
+        <ul style="margin: 0; padding-left: 20px;">
+          <li style="margin-bottom: 8px; font-size: 14px;">Aromadiffusor bei Müdigkeit und Konzentrationsproblemen</li>
+          <li style="margin-bottom: 8px; font-size: 14px;">Massageöl bei Muskelverspannungen und Verdauungsbeschwerden</li>
+          <li style="margin-bottom: 8px; font-size: 14px;">Hautpflege zur Anregung der Durchblutung (verdünnt verwenden)</li>
+        </ul>
+      </div>
+
+      <div style="background-color: #f8f9ff; padding: 16px; border-radius: 12px; margin-bottom: 16px; border-left: 4px solid #6366f1;">
+        <h3 style="color: #4338ca; margin: 0 0 8px 0; font-size: 16px; font-weight: 600;">Haltbarkeit nach Öffnen</h3>
+        <p style="margin: 0; font-size: 14px;">Ca. 12 Monate, kühl und dunkel lagern</p>
+      </div>
+
+      <div style="background-color: #f8f9ff; padding: 16px; border-radius: 12px; margin-bottom: 16px; border-left: 4px solid #6366f1;">
+        <h3 style="color: #4338ca; margin: 0 0 8px 0; font-size: 16px; font-weight: 600;">Duftnote</h3>
+        <p style="margin: 0; font-size: 14px;">Frisch, zitrisch, herb, leicht würzig</p>
+      </div>
+
+      <div style="background-color: #fff; padding: 16px; border-radius: 12px; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid #e5e7eb;">
+        <h3 style="color: #333; margin: 0 0 12px 0; font-size: 16px; font-weight: 600;">Passende Öle für Duftmischungen</h3>
+        <ul style="margin: 0; padding-left: 20px;">
+          <li style="margin-bottom: 8px; font-size: 14px;">Lavendel</li>
+          <li style="margin-bottom: 8px; font-size: 14px;">Zitrone</li>
+          <li style="margin-bottom: 8px; font-size: 14px;">Bergamotte</li>
+          <li style="margin-bottom: 8px; font-size: 14px;">Rosmarin</li>
+          <li style="margin-bottom: 8px; font-size: 14px;">Pfefferminze</li>
+        </ul>
+      </div>
+
+      <div style="background-color: #fef2f2; padding: 16px; border-radius: 12px; margin-bottom: 16px; border-left: 4px solid #ef4444;">
+        <h3 style="color: #dc2626; margin: 0 0 12px 0; font-size: 16px; font-weight: 600; display: flex; align-items: center;">
+          <span style="margin-right: 8px;">⚠️</span> Sicherheit
+        </h3>
+        <ul style="margin: 0; padding-left: 20px;">
+          <li style="margin-bottom: 8px; font-size: 14px;">Kann fototoxisch sein (auf die Haut aufgetragen, Sonnenexposition vermeiden)</li>
+          <li style="margin-bottom: 8px; font-size: 14px;">Nicht unverdünnt auf empfindliche Haut auftragen</li>
+          <li style="margin-bottom: 8px; font-size: 14px;">Nicht für Schwangere und Kinder unter 6 Jahren empfohlen</li>
+        </ul>
+      </div>
+
+    </div>
+  ''';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,279 +103,42 @@ class OilDescriptionScreen extends StatelessWidget {
       backgroundColor: ColorConstants.white,
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16.w),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Main Description
-            _buildDescriptionCard(
-              title: "Beschreibung",
-              content: "Das ätherische Öl der Bitterorange wird hauptsächlich durch Kaltpressung der Schale gewonnen. Es hat einen kräftigen, frischen, leicht herben Zitrusduft.",
+        child: Html(
+          data: bitterOrangeHtml,
+          style: {
+            "body": Style(
+              margin: Margins.zero,
+              padding: HtmlPaddings.zero,
             ),
-            
-            SizedBox(height: 16.h),
-            
-            // Main Applications
-            _buildBulletPointCard(
-              title: "Wichtigste Anwendungsgebiete in der Aromatherapie",
-              points: [
-                "Belebung und Erfrischung",
-                "Unterstützung bei Konzentrationsschwäche", 
-                "Stimmungsaufhellung bei Melancholie und Stress",
-                "Förderung der Verdauung",
-              ],
+            "div": Style(
+              margin: Margins.zero,
             ),
-            
-            SizedBox(height: 16.h),
-            
-            // Physical Effects
-            _buildBulletPointCard(
-              title: "Körperliche Haupt-Wirkungen",
-              points: [
-                "Anregend und durchblutungsfördernd",
-                "Verdauungsfördernd",
-                "Krampflösend",
-                "Entzündungshemmend",
-              ],
-            ),
-            
-            SizedBox(height: 16.h),
-            
-            // Emotional Effects
-            _buildBulletPointCard(
-              title: "Seelische Haupt-Wirkungen",
-              points: [
-                "Stimmungsaufhellend",
-                "Konzentrationsfördernd",
-                "Stressmindernd",
-                "Belebend",
-              ],
-            ),
-            
-            SizedBox(height: 16.h),
-            
-            // Chakra
-            _buildDescriptionCard(
-              title: "Chakra",
-              content: "Solarplexus-Chakra (Energiezentrum für Selbstbewusstsein und Willenskraft)",
-            ),
-            
-            SizedBox(height: 16.h),
-            
-            // Main Applications
-            _buildBulletPointCard(
-              title: "Hauptanwendungen",
-              points: [
-                "Aromadiffusor bei Müdigkeit und Konzentrationsproblemen",
-                "Massageöl bei Muskelverspannungen und Verdauungsbeschwerden",
-                "Hautpflege zur Anregung der Durchblutung (verdünnt verwenden)",
-              ],
-            ),
-            
-            SizedBox(height: 16.h),
-            
-            // Shelf Life
-            _buildDescriptionCard(
-              title: "Haltbarkeit nach Öffnen",
-              content: "Ca. 12 Monate, kühl und dunkel lagern",
-            ),
-            
-            SizedBox(height: 16.h),
-            
-            // Scent Profile
-            _buildDescriptionCard(
-              title: "Duftnote",
-              content: "Frisch, zitrisch, herb, leicht würzig",
-            ),
-            
-            SizedBox(height: 16.h),
-            
-            // Compatible Oils
-            _buildBulletPointCard(
-              title: "Passende Öle für Duftmischungen",
-              points: [
-                "Lavendel",
-                "Zitrone", 
-                "Bergamotte",
-                "Rosmarin",
-                "Pfefferminze",
-              ],
-            ),
-            
-            SizedBox(height: 16.h),
-            
-            // Safety Information
-            _buildSafetyCard(
-              title: "Sicherheit",
-              points: [
-                "Kann fototoxisch sein (auf die Haut aufgetragen, Sonnenexposition vermeiden)",
-                "Nicht unverdünnt auf empfindliche Haut auftragen",
-                "Nicht für Schwangere und Kinder unter 6 Jahren empfohlen",
-              ],
-            ),
-            
-            SizedBox(height: 24.h),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildDescriptionCard({required String title, required String content}) {
-    return Container(
-      width: double.infinity,
-      padding: EdgeInsets.all(16.w),
-      decoration: BoxDecoration(
-        color: ColorConstants.primaryLight,
-        borderRadius: BorderRadius.circular(12.r),
-        border: Border.all(color: ColorConstants.primary.withOpacity(0.3)),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: GoogleFonts.roboto(
-              fontSize: 18.sp,
+            "h2": Style(
+              fontSize: FontSize(18.sp),
               fontWeight: FontWeight.w700,
-              color: ColorConstants.primaryDark,
+              margin: Margins.only(bottom: 8.h),
             ),
-          ),
-          SizedBox(height: 8.h),
-          Text(
-            content,
-            style: GoogleFonts.roboto(
-              fontSize: 14.sp,
-              fontWeight: FontWeight.w400,
-              color: ColorConstants.dark,
-              height: 1.5,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildBulletPointCard({required String title, required List<String> points}) {
-    return Container(
-      width: double.infinity,
-      padding: EdgeInsets.all(16.w),
-      decoration: BoxDecoration(
-        color: ColorConstants.white,
-        borderRadius: BorderRadius.circular(12.r),
-        border: Border.all(color: ColorConstants.lightGray),
-        boxShadow: [
-          BoxShadow(
-            color: ColorConstants.gray.withOpacity(0.1),
-            blurRadius: 4,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: GoogleFonts.roboto(
-              fontSize: 16.sp,
+            "h3": Style(
+              fontSize: FontSize(16.sp),
               fontWeight: FontWeight.w600,
-              color: ColorConstants.dark,
+              margin: Margins.only(bottom: 12.h),
             ),
-          ),
-          SizedBox(height: 12.h),
-          ...points.map((point) => Padding(
-                padding: EdgeInsets.only(bottom: 8.h),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(top: 6.h, right: 8.w),
-                      width: 6.w,
-                      height: 6.h,
-                      decoration: BoxDecoration(
-                        color: ColorConstants.primary,
-                        shape: BoxShape.circle,
-                      ),
-                    ),
-                    Expanded(
-                      child: Text(
-                        point,
-                        style: GoogleFonts.roboto(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w400,
-                          color: ColorConstants.dark,
-                          height: 1.4,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              )).toList(),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildSafetyCard({required String title, required List<String> points}) {
-    return Container(
-      width: double.infinity,
-      padding: EdgeInsets.all(16.w),
-      decoration: BoxDecoration(
-        color: ColorConstants.danger.withOpacity(0.05),
-        borderRadius: BorderRadius.circular(12.r),
-        border: Border.all(color: ColorConstants.danger.withOpacity(0.3)),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Icon(
-                Icons.warning_amber_rounded,
-                color: ColorConstants.danger,
-                size: 20.sp,
-              ),
-              SizedBox(width: 8.w),
-              Text(
-                title,
-                style: GoogleFonts.roboto(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w600,
-                  color: ColorConstants.danger,
-                ),
-              ),
-            ],
-          ),
-          SizedBox(height: 12.h),
-          ...points.map((point) => Padding(
-                padding: EdgeInsets.only(bottom: 8.h),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(top: 6.h, right: 8.w),
-                      width: 6.w,
-                      height: 6.h,
-                      decoration: BoxDecoration(
-                        color: ColorConstants.danger,
-                        shape: BoxShape.circle,
-                      ),
-                    ),
-                    Expanded(
-                      child: Text(
-                        point,
-                        style: GoogleFonts.roboto(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w400,
-                          color: ColorConstants.dark,
-                          height: 1.4,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              )).toList(),
-        ],
+            "p": Style(
+              fontSize: FontSize(14.sp),
+              lineHeight: const LineHeight(1.5),
+              margin: Margins.zero,
+            ),
+            "li": Style(
+              fontSize: FontSize(14.sp),
+              lineHeight: const LineHeight(1.4),
+              margin: Margins.only(bottom: 8.h),
+            ),
+            "ul": Style(
+              margin: Margins.zero,
+              padding: HtmlPaddings.only(left: 20.w),
+            ),
+          },
+        ),
       ),
     );
   }
