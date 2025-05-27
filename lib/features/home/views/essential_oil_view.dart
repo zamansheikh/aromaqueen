@@ -4,6 +4,7 @@ import 'package:aromaqueen/core/themes/color_constants.dart';
 import 'package:aromaqueen/core/utils/icon_render.dart';
 import 'package:aromaqueen/core/utils/image_render.dart';
 import 'package:aromaqueen/core/wrapper/bottom_sheet_wrapper.dart';
+import 'package:aromaqueen/features/home/views/oil_details_screen.dart';
 import 'package:aromaqueen/features/home/views/recipe_detail_screen.dart';
 import 'package:aromaqueen/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
@@ -131,7 +132,7 @@ class _EssentialOilViewState extends State<EssentialOilView> {
                     return InkWell(
                       onTap: () {
                         print("Show Details for $item");
-                        Get.to(RecipeDetailScreen(title: item));
+                        Get.to(OilDetailsScreen(oilName: item));
                       },
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 10),
@@ -172,13 +173,14 @@ class _EssentialOilViewState extends State<EssentialOilView> {
                       child: SizedBox(
                         width: Get.width,
                         child: Column(
-                          children: [
-                            CircleAvatar(
+                          children: [                            CircleAvatar(
                               radius: 100,
-                              child: imageRender(
-                                url: ImageConstants.hotline,
-                                width: 200.w,
-                                height: 200.h,
+                              child: ClipOval(
+                                child: imageRender(
+                                  url: ImageConstants.hotline,
+                                  width: 200.w,
+                                  height: 200.h,
+                                ),
                               ),
                             ),
                             SizedBox(height: 32.h),
@@ -221,13 +223,14 @@ class _EssentialOilViewState extends State<EssentialOilView> {
                         ),
                       ),
                     );
-                  },
-                  child: CircleAvatar(
-                    radius: 36,
-                    child: imageRender(
-                      url: ImageConstants.hotline,
-                      width: 120,
-                      height: 120,
+                  },                  child: CircleAvatar(
+                    radius: 60,
+                    child: ClipOval(
+                      child: imageRender(
+                        url: ImageConstants.hotline,
+                        width: 120,
+                        height: 120,
+                      ),
                     ),
                   ),
                 ),

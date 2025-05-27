@@ -41,13 +41,23 @@ class BottomNavigation extends StatelessWidget {
                     ? ColorConstants.primaryDark
                     : ColorConstants.gray,
           ),
-          label: 'Essential Oil',
+          label: 'Essen. Oils',
+        ),
+         BottomNavigationBarItem(
+          icon: SvgPicture.asset(
+            IconConst.recipeIcon,
+            color:
+                menuIndex == 2
+                    ? ColorConstants.primaryDark
+                    : ColorConstants.gray,
+          ),
+          label: 'Recipes',
         ),
         BottomNavigationBarItem(
           icon: SvgPicture.asset(
             IconConst.gradIcon,
             color:
-                menuIndex == 2
+                menuIndex == 3
                     ? ColorConstants.primaryDark
                     : ColorConstants.gray,
           ),
@@ -57,7 +67,7 @@ class BottomNavigation extends StatelessWidget {
           icon: SvgPicture.asset(
             IconConst.community,
             color:
-                menuIndex == 3
+                menuIndex == 4
                     ? ColorConstants.primaryDark
                     : ColorConstants.gray,
           ),

@@ -6,6 +6,8 @@ import 'package:aromaqueen/features/training/view/training_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'home/views/recepies_view.dart';
+
 class MainPage extends StatelessWidget {
   /*
   This is class's only purpose is to render the same bottom 
@@ -27,6 +29,7 @@ class MainPage extends StatelessWidget {
         children: [
           HomeView(),
           EssentialOilView(),
+          RecipesView(),
           TrainingView(),
           CommunityView(),
         ],
