@@ -22,30 +22,35 @@ class RecipesView extends StatefulWidget {
   State<RecipesView> createState() => _RecipesViewState();
 }
 
-class _RecipesViewState extends State<RecipesView> {
-  final List<String> categories = [
-    'Gesundheit',
-    'Feel good',
-    'Beauty',
-    'Haushalt',
-    'Kinder (Upgrade)',
-    'Senioren (Upgrade)',
-    'Tiere (Upgrade)',
-    'Hormon-Balance (Upgrade)',
-    'Aroma Massagen (Upgrade)',
-    'Aura/Chakra (Upgrade)',
-    'Meditation/ Yoga (Upgrade)',
+class _RecipesViewState extends State<RecipesView> {  final List<String> categories = [
+    'Skincare',
+    'Hair Care',
+    'Face Masks',
+    'Body Care',
+    'Anti-Aging',
+    'Acne Treatment',
+    'Lip Care',
+    'Eye Care',
+    'Aromatherapy',
+    'Wellness',
+    'Relaxation',
   ];
 
   final Map<String, List<String>> categoryItems = {
-    'Gesundheit': ['Akne', 'Angina', 'Herpes', 'Husten', 'Warzen'],
-    'Feel good': ['Relaxation', 'Mood Boost', 'Energy'],
-    'Beauty': ['Skin Care', 'Hair Growth', 'Lip Balm'],
-    'Haushalt': ['Cleaner', 'Disinfectant'],
-    // ... add more
+    'Skincare': ['Hydrating Face Serum', 'Gentle Cleansing Oil', 'Brightening Toner', 'Vitamin C Moisturizer', 'Rose Water Spray'],
+    'Hair Care': ['Scalp Massage Oil', 'Hair Growth Serum', 'Deep Conditioning Mask', 'Anti-Dandruff Treatment', 'Shine Enhancing Spray'],
+    'Face Masks': ['Purifying Clay Mask', 'Hydrating Honey Mask', 'Exfoliating Oatmeal Mask', 'Brightening Turmeric Mask', 'Anti-Aging Collagen Mask'],
+    'Body Care': ['Moisturizing Body Butter', 'Exfoliating Sugar Scrub', 'Firming Body Oil', 'Cellulite Reduction Cream', 'Stretch Mark Prevention Oil'],
+    'Anti-Aging': ['Wrinkle Reducing Serum', 'Firming Eye Cream', 'Collagen Boosting Mask', 'Retinol Night Treatment', 'Peptide Face Cream'],
+    'Acne Treatment': ['Tea Tree Spot Treatment', 'Salicylic Acid Cleanser', 'Oil Control Toner', 'Pore Minimizing Serum', 'Blemish Clearing Mask'],
+    'Lip Care': ['Moisturizing Lip Balm', 'Plumping Lip Gloss', 'Exfoliating Lip Scrub', 'Healing Lip Treatment', 'Tinted Lip Oil'],
+    'Eye Care': ['Dark Circle Reducer', 'Puffy Eye Treatment', 'Lash Growth Serum', 'Eye Brightening Cream', 'Anti-Wrinkle Eye Gel'],
+    'Aromatherapy': ['Stress Relief Blend', 'Energy Boosting Mix', 'Sleep Inducing Oil', 'Focus Enhancement Blend', 'Mood Lifting Spray'],
+    'Wellness': ['Detox Body Wrap', 'Immune Boosting Blend', 'Digestive Support Oil', 'Headache Relief Roll-on', 'Muscle Pain Relief Balm'],
+    'Relaxation': ['Bath Bomb Recipe', 'Meditation Oil Blend', 'Spa Day Face Mask', 'Relaxing Massage Oil', 'Calming Pillow Spray'],
   };
 
-  String selectedCategory = 'Gesundheit';
+  String selectedCategory = 'Skincare';
 
   @override
   Widget build(BuildContext context) {
@@ -66,12 +71,10 @@ class _RecipesViewState extends State<RecipesView> {
                   const Icon(Icons.menu),
                 ],
               ),
-              const SizedBox(height: 16),
-
-              // Search Bar
+              const SizedBox(height: 16),              // Search Bar
               TextField(
                 decoration: InputDecoration(
-                  hintText: 'Use the keyword search',
+                  hintText: 'Search beauty recipes...',
                   suffixIcon: const Icon(Icons.search),
                   contentPadding: const EdgeInsets.symmetric(horizontal: 20),
                   border: OutlineInputBorder(

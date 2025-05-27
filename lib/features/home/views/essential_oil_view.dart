@@ -5,7 +5,6 @@ import 'package:aromaqueen/core/utils/icon_render.dart';
 import 'package:aromaqueen/core/utils/image_render.dart';
 import 'package:aromaqueen/core/wrapper/bottom_sheet_wrapper.dart';
 import 'package:aromaqueen/features/home/views/oil_details_screen.dart';
-import 'package:aromaqueen/features/home/views/recipe_detail_screen.dart';
 import 'package:aromaqueen/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,34 +19,71 @@ class EssentialOilView extends StatefulWidget {
 }
 
 class _EssentialOilViewState extends State<EssentialOilView> {
-  final List<String> categories = [
-    'Gesundheit',
-    'Feel good',
-    'Beauty',
-    'Haushalt',
-    'Kinder (Upgrade)',
-    'Senioren (Upgrade)',
-    'Tiere (Upgrade)',
-    'Hormon-Balance (Upgrade)',
-    'Aroma Massagen (Upgrade)',
-    'Aura/Chakra (Upgrade)',
-    'Meditation/ Yoga (Upgrade)',
+  // Beauty-related essential oils
+  final List<String> allOils = [
+    'Lavender Oil',
+    'Rose Oil',
+    'Jojoba Oil',
+    'Argan Oil',
+    'Tea Tree Oil',
+    'Rosehip Oil',
+    'Vitamin E Oil',
+    'Sweet Almond Oil',
+    'Coconut Oil',
+    'Geranium Oil',
+    'Frankincense Oil',
+    'Chamomile Oil',
+    'Ylang Ylang Oil',
+    'Bergamot Oil',
+    'Lemon Oil',
+    'Peppermint Oil',
+    'Eucalyptus Oil',
+    'Rosemary Oil',
+    'Sandalwood Oil',
+    'Neroli Oil',
+    'Jasmine Oil',
+    'Patchouli Oil',
+    'Carrot Seed Oil',
+    'Grapeseed Oil',
+    'Avocado Oil',
+    'Evening Primrose Oil',
+    'Marula Oil',
+    'Squalane Oil',
+    'Ceramide Oil',
+    'Hyaluronic Acid Oil',
   ];
 
-  final Map<String, List<String>> categoryItems = {
-    'Gesundheit': ['Akne', 'Angina', 'Herpes', 'Husten', 'Warzen'],
-    'Feel good': ['Relaxation', 'Mood Boost', 'Energy'],
-    'Beauty': ['Skin Care', 'Hair Growth', 'Lip Balm'],
-    'Haushalt': ['Cleaner', 'Disinfectant'],
-    // ... add more
-  };
+  List<String> filteredOils = [];
+  TextEditingController searchController = TextEditingController();
 
-  String selectedCategory = 'Gesundheit';
+  @override
+  void initState() {
+    super.initState();
+    filteredOils = List.from(allOils); // Initially show all oils
+    searchController.addListener(_filterOils);
+  }
+
+  @override
+  void dispose() {
+    searchController.dispose();
+    super.dispose();
+  }
+
+  void _filterOils() {
+    setState(() {
+      if (searchController.text.isEmpty) {
+        filteredOils = List.from(allOils);
+      } else {
+        filteredOils = allOils
+            .where((oil) =>
+                oil.toLowerCase().contains(searchController.text.toLowerCase()))
+            .toList();
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    final List<String> currentItems = categoryItems[selectedCategory] ?? [];
-
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -67,8 +103,9 @@ class _EssentialOilViewState extends State<EssentialOilView> {
 
               // Search Bar
               TextField(
+                controller: searchController,
                 decoration: InputDecoration(
-                  hintText: 'Use the keyword search',
+                  hintText: 'Search for essential oils...',
                   suffixIcon: const Icon(Icons.search),
                   contentPadding: const EdgeInsets.symmetric(horizontal: 20),
                   border: OutlineInputBorder(
@@ -80,68 +117,84 @@ class _EssentialOilViewState extends State<EssentialOilView> {
               const SizedBox(height: 16),
               contactHotline(context),
 
-              // Hotline Text + Avatar
-              const SizedBox(height: 12),
+              const SizedBox(height: 16),
 
-              // Category Chips
-              Wrap(
-                spacing: 8,
-                runSpacing: 8,
-                children:
-                    categories.map((cat) {
-                      final bool isSelected = cat == selectedCategory;
-                      return GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            selectedCategory = cat;
-                          });
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 12,
-                            vertical: 8,
-                          ),
-                          decoration: BoxDecoration(
-                            color:
-                                isSelected
-                                    ? Colors.green.shade200
-                                    : Colors.grey.shade300,
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Text(
-                            cat,
-                            style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 13,
-                            ),
-                          ),
-                        ),
-                      );
-                    }).toList(),
+              // Results Count
+              Align(
+                alignment: Alignment.center,
+                child: Text(
+                  '${filteredOils.length} oils found',
+                  style: GoogleFonts.roboto(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w500,
+                    color: ColorConstants.gray,
+                  ),
+                ),
               ),
 
               const SizedBox(height: 12),
 
-              // List Items
+              // Essential Oils List
               Expanded(
                 child: ListView.builder(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  itemCount: currentItems.length,
+                  padding: const EdgeInsets.symmetric(horizontal: 4),
+                  itemCount: filteredOils.length,
                   itemBuilder: (context, index) {
-                    final item = currentItems[index];
+                    final oil = filteredOils[index];
                     return InkWell(
                       onTap: () {
-                        print("Show Details for $item");
-                        Get.to(OilDetailsScreen(oilName: item));
+                        Get.to(OilDetailsScreen(oilName: oil));
                       },
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 10),
-                        child: Text(
-                          '${String.fromCharCode(65 + index)}. $item',
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                          ),
+                      child: Container(
+                        margin: EdgeInsets.only(bottom: 12.h),
+                        padding: EdgeInsets.all(16.w),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(12.r),
+                          border: Border.all(color: ColorConstants.lightGray),
+                          boxShadow: [
+                            BoxShadow(
+                              color: ColorConstants.gray.withOpacity(0.1),
+                              blurRadius: 4,
+                              offset: const Offset(0, 2),
+                            ),
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            // Oil Icon/Image
+                            Container(
+                              width: 50.w,
+                              height: 50.h,
+                              decoration: BoxDecoration(
+                                color: ColorConstants.primaryLight,
+                                borderRadius: BorderRadius.circular(25.r),
+                              ),
+                              child: Icon(
+                                Icons.eco,
+                                color: ColorConstants.primary,
+                                size: 24.sp,
+                              ),
+                            ),
+                            SizedBox(width: 16.w),
+                            // Oil Name
+                            Expanded(
+                              child: Text(
+                                oil,
+                                style: GoogleFonts.roboto(
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w600,
+                                  color: ColorConstants.dark,
+                                ),
+                              ),
+                            ),
+                            // Arrow Icon
+                            Icon(
+                              Icons.arrow_forward_ios,
+                              color: ColorConstants.gray,
+                              size: 16.sp,
+                            ),
+                          ],
                         ),
                       ),
                     );
@@ -173,7 +226,8 @@ class _EssentialOilViewState extends State<EssentialOilView> {
                       child: SizedBox(
                         width: Get.width,
                         child: Column(
-                          children: [                            CircleAvatar(
+                          children: [
+                            CircleAvatar(
                               radius: 100,
                               child: ClipOval(
                                 child: imageRender(
@@ -223,7 +277,8 @@ class _EssentialOilViewState extends State<EssentialOilView> {
                         ),
                       ),
                     );
-                  },                  child: CircleAvatar(
+                  },
+                  child: CircleAvatar(
                     radius: 60,
                     child: ClipOval(
                       child: imageRender(
@@ -246,7 +301,6 @@ class _EssentialOilViewState extends State<EssentialOilView> {
             ),
           ],
         ),
-
         Flexible(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
